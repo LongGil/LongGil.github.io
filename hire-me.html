@@ -36,26 +36,26 @@
                 <div class="heading" style="margin-bottom: 60px;">
                     <h2 style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Liên hệ</h2>
                 </div>
-                <form style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px var(--bs-gray-400);">
-                    <div class="mb-3"><label class="form-label" for="subject" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Chủ&nbsp;đề</label><select class="form-select" id="subject">
-                            <optgroup label="DevLiG">
-                                <option value="12" selected="">Cá nhân</option>
-                                <option value="13">Công khai</option>
-                                <option value="14">Công việc</option>
-                                <option value="15">Gilong Game</option>
-                                <option value="16">Feedback</option>
-                                <option value="17">Khác</option>
-                            </optgroup>
-                        </select></div>
-                    <div class="mb-3"><label class="form-label" for="email" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Email</label><input class="form-control" type="email" id="email"></div>
-                    <div class="mb-3"><label class="form-label" for="message" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Nội dung</label><textarea class="form-control" id="message"></textarea></div>
-                    <div class="mb-3">
-                        <div class="row">
-                            <div class="col-md-6"><label class="form-label" for="hire-date" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Thời gian</label><input class="form-control" id="hire-date" type="date"></div>
-                            <div class="col-md-6 button"><button class="btn btn-primary d-block w-100" type="submit" style="text-shadow: 0px 0px 10px var(--bs-btn-bg);font-family: Alatsi, sans-serif;">Gửi</button></div>
+                    <form style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px var(--bs-gray-400);" id="contactForm" onsubmit="sendEmail(event)">
+                        <div class="mb-3"><label class="form-label" for="subject" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Chủ&nbsp;đề</label><select class="form-select" id="subject">
+                                <optgroup label="DevLiG">
+                                    <option value="Cá nhân" selected="">Cá nhân</option>
+                                    <option value="Công khai">Công khai</option>
+                                    <option value="Công việc">Công việc</option>
+                                    <option value="Gilong Game">Gilong Game</option>
+                                    <option value="Feedback">Feedback</option>
+                                    <option value="Khác">Khác</option>
+                                </optgroup>
+                            </select></div>
+                        <div class="mb-3"><label class="form-label" for="email" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Email</label><input class="form-control" type="email" id="email" required></div>
+                        <div class="mb-3"><label class="form-label" for="message" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Nội dung</label><textarea class="form-control" id="message" required></textarea></div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-6"><label class="form-label" for="hire-date" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Thời gian</label><input class="form-control" id="hire-date" type="date"></div>
+                                <div class="col-md-6 button"><button class="btn btn-primary d-block w-100" type="submit" style="text-shadow: 0px 0px 10px var(--bs-btn-bg);font-family: Alatsi, sans-serif;">Gửi</button></div>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
             </div>
         </section>
     </main>
@@ -70,6 +70,47 @@
     <script src="assets/js/pikaday.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/Video-Parallax-Background-v2-multiple-parallax.js"></script>
+
+    <script>
+    function sendEmail(event) {
+        event.preventDefault();
+        
+        // Lấy các giá trị từ form
+        const subject = document.getElementById('subject').value;
+        const fromEmail = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const date = document.getElementById('hire-date').value;
+        
+        // Tạo nội dung email
+        let body = `Nội dung: ${message}\n\n`;
+        body += `Email người gửi: ${fromEmail}\n`;
+        if (date) {
+            body += `Thời gian: ${date}\n`;
+        }
+        
+        // Mã hóa nội dung email để sử dụng trong URL
+        const encodedSubject = encodeURIComponent(`[Website] ${subject}`);
+        const encodedBody = encodeURIComponent(body);
+        
+        // Tạo liên kết mailto
+        const mailtoLink = `mailto:longgil.studio@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Mở trình soạn email mặc định
+        window.location.href = mailtoLink;
+        
+        // Thông báo thành công
+        alert('Email đang được mở trong ứng dụng mail của bạn!');
+        
+        // Reset form
+        document.getElementById('contactForm').reset();
+        
+        // Reset giá trị dropdown menu về mặc định (nếu cần)
+        document.getElementById('subject').value = 'Cá nhân';
+        
+        // Focus về ô Email để tiện nhập liệu mới
+        document.getElementById('email').focus();
+    }
+    </script>
 </body>
 
 </html>
