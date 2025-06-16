@@ -55,6 +55,48 @@
             width: 20px !important;
             height: 20px !important;
         }
+        .language-toggle {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Exo 2', sans-serif;
+            min-width: 50px;
+        }
+        .language-toggle:hover {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            border-color: #5aa3f0;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0px 4px 8px rgba(74, 144, 226, 0.3);
+        }
+        .language-toggle:focus {
+            box-shadow: 0px 0px 0px 2px rgba(74, 144, 226, 0.5);
+            outline: none;
+        }
+        
+        @media (max-width: 576px) {
+            .about-me .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .about-me div {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            .language-toggle {
+                font-size: 11px;
+                padding: 3px 6px;
+                min-width: 45px;
+            }
+            .about-me p {
+                font-size: 18px !important;
+            }
+        }
     </style>
 </head>
 
@@ -65,12 +107,24 @@
         </div>
     </section>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient" style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30;">
-        <div class="container"><a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a><button data-bs-toggle="collapse" class="navbar-toggler collapsed" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a>
+            <div class="d-flex align-items-center d-lg-none">
+                <button class="btn language-toggle me-2" onclick="toggleLanguage()" id="langToggleMobile">
+                    🌐 VI
+                </button>
+                <button data-bs-toggle="collapse" class="navbar-toggler collapsed" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cv.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">CV</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hire-me.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Trang chủ" data-en="Home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="CV" data-en="CV">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hire-me.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+                    <li class="nav-item d-none d-lg-block">
+                        <button class="btn language-toggle ms-3" onclick="toggleLanguage()" id="langToggleDesktop">
+                            🌐 VI
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -80,7 +134,11 @@
             <div class="container" style="background: url(&quot;assets/img/Background_avatar2_1320x320.svg&quot;) bottom / cover, #050a30;box-shadow: 0px 0px 10px 7px #050a30;">
                 <div class="avatar" style="background: url(&quot;assets/img/avatars/284840667_1435950756866328_6320531081256059976_n%20(1).jpg&quot;) center / cover;"></div>
                 <div class="about-me">
-                    <p style="color: var(--bs-gray-100);font-family: Alatsi, sans-serif;font-weight: bold;text-shadow: 0px 0px 10px var(--bs-primary);">Hello! I'm <strong>Huynh Long Gil</strong>, also known as <strong>Gil Huynh Long</strong>. I'm a computer science and game developer.</p><a class="btn" role="button" href="cv.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;">CV</a>
+                    <p style="color: var(--bs-gray-100);font-family: 'Exo 2', 'Segoe UI', 'Open Sans', 'Roboto', sans-serif;font-weight: 500;font-size: 22px;letter-spacing: 0.3px;line-height: 1.6;text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Xin chào! Tôi là <strong>Huỳnh Long Gil</strong>, còn được biết đến với tên <strong>Gil Huynh Long</strong>. Tôi là nhà phát triển khoa học máy tính và game." data-en="Hello! I'm <strong>Huynh Long Gil</strong>, also known as <strong>Gil Huynh Long</strong>. I'm a computer science and game developer.">Xin chào! Tôi là <strong>Huỳnh Long Gil</strong>, còn được biết đến với tên <strong>Gil Huynh Long</strong>. Tôi là nhà phát triển khoa học máy tính và game.</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                        <a class="btn" role="button" href="cv.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;" data-vi="CV" data-en="CV">CV</a>
+                        <a class="btn" role="button" href="hire-me.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+                    </div>
                 </div>
             </div>
             <div class="container py-4 py-xl-5">
@@ -90,24 +148,24 @@
                             <div class="photo-card" style="margin-bottom: 10px;">
                                 <div class="photo-background" style="background: url(&quot;assets/img/Icon_fruitdodgeball.png&quot;) center / cover;"></div>
                                 <div class="photo-details" style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-warning);text-shadow: 0px 0px 10px var(--bs-primary);">Fruit&nbsp;Dodgeball</h1>
-                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);">Fruit Dodgeball là trò chơi điện tử trong đó người chơi sẽ điều khiển quả bóng bay, va chạm, và tránh chướng ngại vật để ghi điểm.</p>
+                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-warning);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Fruit Dodgeball" data-en="Fruit Dodgeball">Fruit Dodgeball</h1>
+                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Fruit Dodgeball là trò chơi điện tử trong đó người chơi sẽ điều khiển quả bóng bay, va chạm, và tránh chướng ngại vật để ghi điểm." data-en="Fruit Dodgeball is a video game where players control a flying ball, collide, and avoid obstacles to score points.">Fruit Dodgeball là trò chơi điện tử trong đó người chơi sẽ điều khiển quả bóng bay, va chạm, và tránh chướng ngại vật để ghi điểm.</p>
                                 </div>
                             </div>
                         </a><a href="https://play.google.com/store/apps/details?id=com.Gilong.KHHT" target="_blank" style="box-shadow: 0px 0px 10px 7px #050a30;">
                             <div class="photo-card" style="margin-bottom: 10px;">
                                 <div class="photo-background" style="background-image: url(&quot;assets/img/ICON_KHHT.png&quot;);"></div>
                                 <div class="photo-details" style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);">TKB -&nbsp;Đăng ký HP</h1>
-                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);">Là ứng dụng nhằm hỗ trợ sinh viên trong việc lập thời khóa biểu để đăng ký học phần.</p>
+                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="TKB - Đăng ký HP" data-en="Schedule - Course Registration">TKB - Đăng ký HP</h1>
+                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Là ứng dụng nhằm hỗ trợ sinh viên trong việc lập thời khóa biểu để đăng ký học phần." data-en="An application designed to assist students in creating schedules for course registration.">Là ứng dụng nhằm hỗ trợ sinh viên trong việc lập thời khóa biểu để đăng ký học phần.</p>
                                 </div>
                             </div>
                         </a><a href="https://play.google.com/store/apps/details?id=com.Gilong.CuteHide" target="_blank" style="box-shadow: 0px 0px 10px 7px #050a30;">
                             <div class="photo-card" style="margin-bottom: 10px;">
                                 <div class="photo-background" style="background-image: url(&quot;assets/img/logo_hide_seek.jpg&quot;);"></div>
                                 <div class="photo-details" style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);">Cute Hide: Query-chan</h1>
-                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);">Trò chơi trốn tìm "cute" với nhân vật chính Query-chan</p>
+                                    <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Cute Hide: Query-chan" data-en="Cute Hide: Query-chan">Cute Hide: Query-chan</h1>
+                                    <p class="project-description" style="font-size: 18px;height: 240px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Trò chơi trốn tìm 'cute' với nhân vật chính Query-chan" data-en="A 'cute' hide-and-seek game featuring the main character Query-chan">Trò chơi trốn tìm "cute" với nhân vật chính Query-chan</p>
                                 </div>
                             </div>
                         </a></div>
@@ -117,7 +175,7 @@
     </main>
     <footer class="page-footer">
         <div class="container">
-            <div class="links"><a href="hire-me.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">Liên hệ</a><a href="#" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">Huỳnh Long Gil</a><a href="cv.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">CV</a></div>
+            <div class="links"><a href="hire-me.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a><a href="#" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Huỳnh Long Gil" data-en="Huynh Long Gil">Huỳnh Long Gil</a><a href="cv.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="CV" data-en="CV">CV</a></div>
             <div class="social-icons"><a href="https://www.facebook.com/huynhlonggil" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/longgilstudio" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-instagram-outline"></i></a><a href="https://x.com/GilHuynhLong" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-twitter"></i></a></div>
         </div>
     </footer>
@@ -126,6 +184,41 @@
     <script src="assets/js/pikaday.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/Video-Parallax-Background-v2-multiple-parallax.js"></script>
+    <script>
+        let currentLanguage = 'vi';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
+            
+            // Update all elements with data-vi and data-en attributes
+            const elements = document.querySelectorAll('[data-vi][data-en]');
+            elements.forEach(element => {
+                const newText = element.getAttribute(`data-${currentLanguage}`);
+                if (newText) {
+                    element.innerHTML = newText;
+                }
+            });
+            
+            // Update both toggle buttons (mobile and desktop)
+            const toggleBtnMobile = document.getElementById('langToggleMobile');
+            const toggleBtnDesktop = document.getElementById('langToggleDesktop');
+            const buttonText = currentLanguage === 'vi' ? '🌐 VI' : '🌐 EN';
+            
+            if (toggleBtnMobile) toggleBtnMobile.innerHTML = buttonText;
+            if (toggleBtnDesktop) toggleBtnDesktop.innerHTML = buttonText;
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', currentLanguage);
+        }
+        
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && savedLanguage !== currentLanguage) {
+                toggleLanguage();
+            }
+        });
+    </script>
 </body>
 
 </html>

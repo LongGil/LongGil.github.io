@@ -40,17 +40,59 @@
             width: 20px !important;
             height: 20px !important;
         }
+        .language-toggle {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Exo 2', sans-serif;
+            min-width: 50px;
+        }
+        .language-toggle:hover {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            border-color: #5aa3f0;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0px 4px 8px rgba(74, 144, 226, 0.3);
+        }
+        .language-toggle:focus {
+            box-shadow: 0px 0px 0px 2px rgba(74, 144, 226, 0.5);
+            outline: none;
+        }
+        @media (max-width: 576px) {
+            .language-toggle {
+                font-size: 11px;
+                padding: 3px 6px;
+                min-width: 45px;
+            }
+        }
     </style>
 </head>
 
 <body style="background: var(--bs-body-color);">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient" style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30;">
-        <div class="container"><a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a><button data-bs-toggle="collapse" class="navbar-toggler collapsed" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a>
+            <div class="d-flex align-items-center d-lg-none">
+                <button class="btn language-toggle me-2" onclick="toggleLanguage()" id="langToggleMobile">
+                    🌐 VI
+                </button>
+                <button data-bs-toggle="collapse" class="navbar-toggler collapsed" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cv.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">CV</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="hire-me.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Trang chủ" data-en="Home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="CV" data-en="CV">CV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="hire-me.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+                    <li class="nav-item d-none d-lg-block">
+                        <button class="btn language-toggle ms-3" onclick="toggleLanguage()" id="langToggleDesktop">
+                            🌐 VI
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,25 +101,25 @@
         <section class="portfolio-block hire-me" style="padding-top: 50px;">
             <div class="container">
                 <div class="heading" style="margin-bottom: 60px;">
-                    <h2 style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Liên hệ</h2>
+                    <h2 style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Liên hệ" data-en="Contact">Liên hệ</h2>
                 </div>
                     <form style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px var(--bs-gray-400);" id="contactForm" onsubmit="sendEmail(event)">
-                        <div class="mb-3"><label class="form-label" for="subject" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Chủ&nbsp;đề</label><select class="form-select" id="subject">
+                        <div class="mb-3"><label class="form-label" for="subject" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Chủ đề" data-en="Subject">Chủ đề</label><select class="form-select" id="subject">
                                 <optgroup label="DevLiG">
-                                    <option value="Cá nhân" selected="">Cá nhân</option>
-                                    <option value="Công khai">Công khai</option>
-                                    <option value="Công việc">Công việc</option>
-                                    <option value="Gilong Game">Gilong Game</option>
-                                    <option value="Feedback">Feedback</option>
-                                    <option value="Khác">Khác</option>
+                                    <option value="Cá nhân" selected="" data-vi="Cá nhân" data-en="Personal">Cá nhân</option>
+                                    <option value="Công khai" data-vi="Công khai" data-en="Public">Công khai</option>
+                                    <option value="Công việc" data-vi="Công việc" data-en="Work">Công việc</option>
+                                    <option value="Gilong Game" data-vi="Gilong Game" data-en="Gilong Game">Gilong Game</option>
+                                    <option value="Feedback" data-vi="Feedback" data-en="Feedback">Feedback</option>
+                                    <option value="Khác" data-vi="Khác" data-en="Other">Khác</option>
                                 </optgroup>
                             </select></div>
-                        <div class="mb-3"><label class="form-label" for="email" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Email</label><input class="form-control" type="email" id="email" required></div>
-                        <div class="mb-3"><label class="form-label" for="message" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Nội dung</label><textarea class="form-control" id="message" required></textarea></div>
+                        <div class="mb-3"><label class="form-label" for="email" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Email" data-en="Email">Email</label><input class="form-control" type="email" id="email" required></div>
+                        <div class="mb-3"><label class="form-label" for="message" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Nội dung" data-en="Message">Nội dung</label><textarea class="form-control" id="message" required></textarea></div>
                         <div class="mb-3">
                             <div class="row">
-                                <div class="col-md-6"><label class="form-label" for="hire-date" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;">Thời gian</label><input class="form-control" id="hire-date" type="date"></div>
-                                <div class="col-md-6 button"><button class="btn btn-primary d-block w-100" type="submit" style="text-shadow: 0px 0px 10px var(--bs-btn-bg);font-family: Alatsi, sans-serif;">Gửi</button></div>
+                                <div class="col-md-6"><label class="form-label" for="hire-date" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Thời gian" data-en="Time">Thời gian</label><input class="form-control" id="hire-date" type="date"></div>
+                                <div class="col-md-6 button"><button class="btn btn-primary d-block w-100" type="submit" style="text-shadow: 0px 0px 10px var(--bs-btn-bg);font-family: Alatsi, sans-serif;" data-vi="Gửi" data-en="Send">Gửi</button></div>
                             </div>
                         </div>
                     </form>
@@ -86,7 +128,7 @@
     </main>
     <footer class="page-footer">
         <div class="container">
-            <div class="links"><a href="hire-me.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">Liên hệ</a><a href="#" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">Huỳnh Long Gil</a><a href="cv.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);">CV</a></div>
+            <div class="links"><a href="hire-me.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a><a href="#" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Huỳnh Long Gil" data-en="Huynh Long Gil">Huỳnh Long Gil</a><a href="cv.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="CV" data-en="CV">CV</a></div>
             <div class="social-icons"><a href="https://www.facebook.com/huynhlonggil" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/longgilstudio" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-instagram-outline"></i></a><a href="https://x.com/GilHuynhLong" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-twitter"></i></a></div>
         </div>
     </footer>
@@ -135,6 +177,45 @@
         // Focus về ô Email để tiện nhập liệu mới
         document.getElementById('email').focus();
     }
+
+    // Language toggle functionality
+    let currentLanguage = 'vi';
+        
+    function toggleLanguage() {
+        currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
+        
+        // Update all elements with data-vi and data-en attributes
+        const elements = document.querySelectorAll('[data-vi][data-en]');
+        elements.forEach(element => {
+            const newText = element.getAttribute(`data-${currentLanguage}`);
+            if (newText) {
+                if (element.tagName === 'OPTION') {
+                    element.textContent = newText;
+                } else {
+                    element.innerHTML = newText;
+                }
+            }
+        });
+        
+        // Update both toggle buttons (mobile and desktop)
+        const toggleBtnMobile = document.getElementById('langToggleMobile');
+        const toggleBtnDesktop = document.getElementById('langToggleDesktop');
+        const buttonText = currentLanguage === 'vi' ? '🌐 VI' : '🌐 EN';
+        
+        if (toggleBtnMobile) toggleBtnMobile.innerHTML = buttonText;
+        if (toggleBtnDesktop) toggleBtnDesktop.innerHTML = buttonText;
+        
+        // Save language preference
+        localStorage.setItem('preferredLanguage', currentLanguage);
+    }
+    
+    // Load saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('preferredLanguage');
+        if (savedLanguage && savedLanguage !== currentLanguage) {
+            toggleLanguage();
+        }
+    });
     </script>
 </body>
 
