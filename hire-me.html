@@ -17,11 +17,35 @@
     <link rel="stylesheet" href="assets/css/pikaday.min.css">
     <link rel="stylesheet" href="assets/css/Styles-Loader.css">
     <link rel="stylesheet" href="assets/css/Video-Parallax-Background-v2-multiple-parallax.css">
+    <style>
+        .navbar-toggler {
+            border: 1px solid rgba(74, 144, 226, 0.3) !important;
+            border-radius: 8px !important;
+            padding: 6px 8px !important;
+            transition: all 0.3s ease !important;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+            border-color: rgba(74, 144, 226, 0.5) !important;
+        }
+        .navbar-toggler:hover {
+            border-color: rgba(74, 144, 226, 0.7) !important;
+            background-color: rgba(74, 144, 226, 0.1) !important;
+        }
+        .navbar-toggler.collapsed {
+            border-color: transparent !important;
+            background-color: transparent !important;
+        }
+        .navbar-toggler-icon {
+            width: 20px !important;
+            height: 20px !important;
+        }
+    </style>
 </head>
 
 <body style="background: var(--bs-body-color);">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient" style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30;">
-        <div class="container"><a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="index.html" style="font-family: 'Gilda Display', serif;font-weight: bold;text-shadow: 0px 0px 5px;">Long Gil</a><button data-bs-toggle="collapse" class="navbar-toggler collapsed" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);">Trang chủ</a></li>
