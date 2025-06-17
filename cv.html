@@ -49,12 +49,13 @@
                     <li class="nav-item"><a class="nav-link" href="hire-me.html"
                             style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);"
                             data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
-                    <li class="nav-item d-none d-lg-block">
-                        <button class="btn language-toggle ms-3" onclick="toggleLanguage()" id="langToggleDesktop">
-                            🌐 VI
-                        </button>
-                    </li>
                 </ul>
+                <!-- Desktop language toggle - outside of mobile collapse menu -->
+                <div class="d-none d-lg-block ms-3">
+                    <button class="btn language-toggle" onclick="toggleLanguage()" id="langToggleDesktop">
+                        🌐 VI
+                    </button>
+                </div>
             </div>
         </div>
     </nav>

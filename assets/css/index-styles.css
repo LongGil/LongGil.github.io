@@ -1,5 +1,96 @@
 /* Index Page Styles */
 
+/* Navbar height optimization */
+.navbar {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+    min-height: auto !important;
+}
+
+.navbar-brand.logo {
+    padding: 0.3rem 0 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.4rem 0.8rem !important;
+    margin: 0.1rem 0.2rem !important;
+}
+
+.navbar-toggler {
+    padding: 0.2rem 0.4rem !important;
+    margin: 0 !important;
+}
+
+.language-toggle {
+    padding: 0.25rem 0.5rem !important;
+    margin: 0.1rem 0 !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+}
+
+/* Language toggle styles */
+.language-toggle {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Mobile navbar height optimization */
+@media (max-width: 767.98px) {
+    .navbar {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+    }
+    
+    .navbar-brand.logo {
+        font-size: 18px !important;
+        padding: 0.2rem 0 !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.3rem 0.6rem !important;
+        margin: 0.05rem 0.1rem !important;
+    }
+      .language-toggle {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 10px !important;
+        min-width: 40px !important;
+    }
+    
+    /* Tăng kích thước text giới thiệu cho mobile */
+    .about-me p {
+        font-size: 18px !important;
+        letter-spacing: 0.25px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* Tablet navbar height optimization */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+    
+    .navbar-brand.logo {
+        font-size: 24px !important;
+        padding: 0.5rem 0 !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.6rem 1rem !important;
+        margin: 0.1rem 0.3rem !important;
+        font-size: 16px !important;
+    }
+    
+    .language-toggle {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 12px !important;
+        min-width: 50px !important;
+    }
+}
+
 .btn:hover {
     background: linear-gradient(135deg, #2a5298, #1e3c72) !important;
     border-color: #5aa3f0 !important;
@@ -52,6 +143,10 @@
     transition: all 0.3s ease;
     font-family: 'Exo 2', sans-serif;
     min-width: 50px;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
 }
 
 .language-toggle:hover {
@@ -69,9 +164,14 @@
 
 /* Desktop/PC styles for larger nav links and logo */
 @media (min-width: 992px) {
+    .navbar {
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+    }
+    
     .navbar-brand.logo {
-        font-size: 28px !important;
-        padding: 0.8rem 0;
+        font-size: 25px !important;
+        padding: 0.4rem 0 !important;
         letter-spacing: 1px;
         transition: all 0.3s ease;
     }
@@ -82,8 +182,8 @@
     }
     
     .navbar-nav .nav-link {
-        font-size: 18px !important;
-        padding: 0.8rem 1.2rem !important;
+        font-size: 16px !important;
+        padding: 0.5rem 1.1rem !important;
         margin: 0 0.3rem;
         border-radius: 8px;
         transition: all 0.3s ease;
@@ -94,37 +194,49 @@
         transform: translateY(-2px);
     }
       .language-toggle {
-        font-size: 13px !important;
-        padding: 6px 10px !important;
-        min-width: 55px !important;
+        font-size: 12px !important;
+        padding: 5px 9px !important;
+        min-width: 50px !important;
         border-radius: 6px !important;
         margin-left: 1rem !important;
     }
 }
 
 @media (min-width: 1200px) {
+    .navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    
     .navbar-brand.logo {
-        font-size: 32px !important;
+        font-size: 29px !important;
         letter-spacing: 1.5px;
+        padding: 0.5rem 0 !important;
     }
     
     .navbar-nav .nav-link {
-        font-size: 20px !important;
-        padding: 1rem 1.5rem !important;
+        font-size: 18px !important;
+        padding: 0.6rem 1.35rem !important;
         margin: 0 0.5rem;
     }
       .language-toggle {
-        font-size: 14px !important;
-        padding: 8px 12px !important;
-        min-width: 60px !important;
+        font-size: 13px !important;
+        padding: 7px 11px !important;
+        min-width: 54px !important;
         margin-left: 1.2rem !important;
     }
 }
 
 @media (min-width: 1400px) {
+    .navbar {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+    
     .navbar-brand.logo {
-        font-size: 36px !important;
+        font-size: 32px !important;
         letter-spacing: 2px;
+        padding: 0.6rem 0 !important;
     }
 }
 
