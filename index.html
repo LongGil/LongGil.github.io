@@ -20,84 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .btn:hover {
-            background: linear-gradient(135deg, #2a5298, #1e3c72) !important;
-            border-color: #5aa3f0 !important;
-            box-shadow: 0px 0px 20px rgba(90, 163, 240, 0.8) !important;
-            transform: translateY(-2px);
-        }
-        .project-description {
-            font-family: 'Exo 2', 'Segoe UI', 'Open Sans', 'Roboto', sans-serif !important;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            line-height: 1.6;
-        }
-        .navbar-toggler {
-            border: 1px solid rgba(74, 144, 226, 0.3) !important;
-            border-radius: 8px !important;
-            padding: 6px 8px !important;
-            transition: all 0.3s ease !important;
-        }
-        .navbar-toggler:focus {
-            box-shadow: none !important;
-            border-color: rgba(74, 144, 226, 0.5) !important;
-        }
-        .navbar-toggler:hover {
-            border-color: rgba(74, 144, 226, 0.7) !important;
-            background-color: rgba(74, 144, 226, 0.1) !important;
-        }
-        .navbar-toggler.collapsed {
-            border-color: transparent !important;
-            background-color: transparent !important;
-        }
-        .navbar-toggler-icon {
-            width: 20px !important;
-            height: 20px !important;
-        }
-        .language-toggle {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            border: 1px solid #4a90e2;
-            border-radius: 6px;
-            color: white;
-            padding: 4px 8px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-family: 'Exo 2', sans-serif;
-            min-width: 50px;
-        }
-        .language-toggle:hover {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-            border-color: #5aa3f0;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0px 4px 8px rgba(74, 144, 226, 0.3);
-        }
-        .language-toggle:focus {
-            box-shadow: 0px 0px 0px 2px rgba(74, 144, 226, 0.5);
-            outline: none;
-        }
-        
-        @media (max-width: 576px) {
-            .about-me .btn {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            .about-me div {
-                flex-direction: column !important;
-                align-items: stretch !important;
-            }
-            .language-toggle {
-                font-size: 11px;
-                padding: 3px 6px;
-                min-width: 45px;
-            }
-            .about-me p {
-                font-size: 18px !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/index-styles.css">
 </head>
 
 <body style="background: var(--bs-body-color);">
@@ -136,8 +59,8 @@
                 <div class="about-me">
                     <p style="color: var(--bs-gray-100);font-family: 'Exo 2', 'Segoe UI', 'Open Sans', 'Roboto', sans-serif;font-weight: 500;font-size: 22px;letter-spacing: 0.3px;line-height: 1.6;text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Xin chào! Tôi là <strong>Huỳnh Long Gil</strong>, còn được biết đến với tên <strong>Gil Huynh Long</strong>. Tôi là nhà phát triển khoa học máy tính và game." data-en="Hello! I'm <strong>Huynh Long Gil</strong>, also known as <strong>Gil Huynh Long</strong>. I'm a computer science and game developer.">Xin chào! Tôi là <strong>Huỳnh Long Gil</strong>, còn được biết đến với tên <strong>Gil Huynh Long</strong>. Tôi là nhà phát triển khoa học máy tính và game.</p>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                        <a class="btn" role="button" href="cv.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;" data-vi="CV" data-en="CV">CV</a>
-                        <a class="btn" role="button" href="hire-me.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+                        <a class="btn" role="button" href="cv.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;padding: 8px 24px;font-size: 16px;font-weight: 500;border-radius: 25px;min-width: auto;" data-vi="CV" data-en="CV">CV</a>
+                        <a class="btn" role="button" href="hire-me.html" style="font-family: Alatsi, sans-serif;background: linear-gradient(135deg, #1e3c72, #2a5298);color: white;border: 2px solid #4a90e2;box-shadow: 0px 0px 15px rgba(74, 144, 226, 0.5);text-shadow: 0px 0px 5px rgba(0,0,0,0.3);transition: all 0.3s ease;padding: 8px 24px;font-size: 16px;font-weight: 500;border-radius: 25px;min-width: auto;" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
                     </div>
                 </div>
             </div>

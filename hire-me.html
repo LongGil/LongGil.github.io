@@ -17,60 +17,7 @@
     <link rel="stylesheet" href="assets/css/pikaday.min.css">
     <link rel="stylesheet" href="assets/css/Styles-Loader.css">
     <link rel="stylesheet" href="assets/css/Video-Parallax-Background-v2-multiple-parallax.css">
-    <style>
-        .navbar-toggler {
-            border: 1px solid rgba(74, 144, 226, 0.3) !important;
-            border-radius: 8px !important;
-            padding: 6px 8px !important;
-            transition: all 0.3s ease !important;
-        }
-        .navbar-toggler:focus {
-            box-shadow: none !important;
-            border-color: rgba(74, 144, 226, 0.5) !important;
-        }
-        .navbar-toggler:hover {
-            border-color: rgba(74, 144, 226, 0.7) !important;
-            background-color: rgba(74, 144, 226, 0.1) !important;
-        }
-        .navbar-toggler.collapsed {
-            border-color: transparent !important;
-            background-color: transparent !important;
-        }
-        .navbar-toggler-icon {
-            width: 20px !important;
-            height: 20px !important;
-        }
-        .language-toggle {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            border: 1px solid #4a90e2;
-            border-radius: 6px;
-            color: white;
-            padding: 4px 8px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-family: 'Exo 2', sans-serif;
-            min-width: 50px;
-        }
-        .language-toggle:hover {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-            border-color: #5aa3f0;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0px 4px 8px rgba(74, 144, 226, 0.3);
-        }
-        .language-toggle:focus {
-            box-shadow: 0px 0px 0px 2px rgba(74, 144, 226, 0.5);
-            outline: none;
-        }
-        @media (max-width: 576px) {
-            .language-toggle {
-                font-size: 11px;
-                padding: 3px 6px;
-                min-width: 45px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/hire-me-styles.css">
 </head>
 
 <body style="background: var(--bs-body-color);">
@@ -119,7 +66,7 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-md-6"><label class="form-label" for="hire-date" style="color: var(--bs-white);text-shadow: 0px 0px 10px var(--bs-primary);font-family: Alatsi, sans-serif;" data-vi="Thời gian" data-en="Time">Thời gian</label><input class="form-control" id="hire-date" type="date"></div>
-                                <div class="col-md-6 button"><button class="btn btn-primary d-block w-100" type="submit" style="text-shadow: 0px 0px 10px var(--bs-btn-bg);font-family: Alatsi, sans-serif;" data-vi="Gửi" data-en="Send">Gửi</button></div>
+                                <div class="col-md-6 button"><button class="btn d-block w-100" type="submit" style="background: linear-gradient(135deg, #1e3c72, #2a5298); border: 2px solid #4a90e2; border-radius: 25px; color: white; padding: 10px 20px; font-size: 16px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; box-shadow: 0px 4px 8px rgba(74, 144, 226, 0.2); font-family: 'Exo 2', sans-serif; text-shadow: 0px 0px 10px rgba(0,0,0,0.3);" data-vi="Gửi" data-en="Send" onmouseover="this.style.background='linear-gradient(135deg, #2a5298, #1e3c72)'; this.style.borderColor='#5aa3f0'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0px 6px 12px rgba(74, 144, 226, 0.4)'" onmouseout="this.style.background='linear-gradient(135deg, #1e3c72, #2a5298)'; this.style.borderColor='#4a90e2'; this.style.transform='translateY(0px)'; this.style.boxShadow='0px 4px 8px rgba(74, 144, 226, 0.2)'">Gửi</button></div>
                             </div>
                         </div>
                     </form>
