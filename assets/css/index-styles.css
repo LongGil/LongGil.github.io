@@ -52,17 +52,11 @@
         padding: 0.3rem 0.6rem !important;
         margin: 0.05rem 0.1rem !important;
     }
-      .language-toggle {
+    
+    .language-toggle {
         padding: 0.2rem 0.4rem !important;
         font-size: 10px !important;
         min-width: 40px !important;
-    }
-    
-    /* Tăng kích thước text giới thiệu cho mobile */
-    .about-me p {
-        font-size: 18px !important;
-        letter-spacing: 0.25px !important;
-        line-height: 1.5 !important;
     }
 }
 
