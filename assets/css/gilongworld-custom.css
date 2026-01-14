@@ -1,0 +1,333 @@
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: #0F172A; /* Slate 900 */
+    color: #E2E8F0; /* Slate 200 */
+    overflow-x: hidden;
+}
+/* Ensure language toggle button is visible against Tailwind reset */
+.language-toggle {
+    background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+    border: 1px solid #4a90e2 !important;
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+h1, h2, h3, h4, .font-tech {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.media-placeholder {
+    background-color: #1E293B;
+    border: 2px dashed #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748B;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.media-placeholder:hover {
+    border-color: #06B6D4;
+    color: #06B6D4;
+    background-color: #1e293b80;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+.video-container iframe, 
+.video-container .placeholder-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 350px;
+}
+
+.glass-panel {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+/* --- TIMELINE CSS FIX --- */
+/* Đường kẻ trung tâm */
+.timeline-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #334155;
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 9999px;
+}
+
+/* Chấm tròn trên Timeline */
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    z-index: 10;
+    position: relative;
+    margin: 0 auto; /* Căn giữa ngang trong ô grid */
+    border: 4px solid #0F172A; /* Viền trùng màu nền để tạo khoảng cách */
+}
+
+/* Đường kẻ dọc cho Mobile */
+.timeline-vertical-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Vị trí của đường kẻ dọc */
+    width: 2px;
+    background-color: #334155;
+}
+.brand-logo {
+    height: 34px;
+    width: auto;
+    filter: drop-shadow(0 0 9px #1ca7ab) brightness(1.3);
+    transition: all 0.3s ease;
+}
+
+/* Fix Ko-fi button visibility */
+.kofi-img {
+    height: 36px !important;
+    width: auto !important;
+    max-width: none !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    vertical-align: middle !important;
+}
+
+/* ===== NAVBAR RESPONSIVE FIX ===== */
+
+/* Desktop (≥992px) - Fix cho kích thước gần breakpoint */
+@media screen and (min-width: 992px) {
+    .navbar .container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+    
+    .navbar-collapse {
+        flex-wrap: nowrap !important;
+    }
+    
+    .navbar-nav {
+        flex-wrap: nowrap !important;
+    }
+    
+    /* Desktop buttons group */
+    .navbar .d-none.d-lg-block {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Desktop nhỏ (992px - 1100px) - Thu nhỏ elements */
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+    .brand-logo {
+        height: 28px !important;
+    }
+    
+    .kofi-img {
+        height: 30px !important;
+    }
+    
+    .nav-link {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        font-size: 14px !important;
+    }
+    
+    .language-toggle {
+        padding: 4px 8px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* Base navbar fix - ÁP DỤNG CHO TẤT CẢ màn hình dưới 992px */
+@media screen and (max-width: 991px) {
+    /* Container phải là flex và không wrap */
+    .navbar .container,
+    .navbar.fixed-top .container,
+    .navbar > .container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+    }
+    
+    /* Navbar brand - cho phép co lại */
+    .navbar-brand,
+    .navbar .navbar-brand {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        margin-right: auto !important;
+    }
+    
+    /* Nhóm buttons bên phải - KHÔNG được co lại */
+    .navbar .d-flex.d-lg-none,
+    .navbar .d-flex.align-items-center.d-lg-none {
+        flex: 0 0 auto !important;
+        flex-shrink: 0 !important;
+        flex-wrap: nowrap !important;
+        display: flex !important;
+        align-items: center !important;
+        margin-left: auto !important;
+        white-space: nowrap !important;
+    }
+    
+    /* Navbar collapse menu dropdown */
+    .navbar-collapse {
+        position: absolute !important;
+        top: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: linear-gradient(135deg, #050a30 0%, #0a1445 100%) !important;
+        border-radius: 0 0 8px 8px !important;
+        padding: 15px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        z-index: 1000 !important;
+    }
+    
+    .navbar-collapse .navbar-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    .navbar-collapse .nav-item {
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .navbar-collapse .nav-item:last-child {
+        border-bottom: none !important;
+    }
+    
+    .navbar-collapse .nav-link {
+        padding: 12px 0 !important;
+    }
+    
+    /* Hamburger button */
+    .navbar-toggler {
+        border-color: rgba(6, 182, 212, 0.5) !important;
+        padding: 4px 8px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 10px rgba(6, 182, 212, 0.5) !important;
+    }
+    
+    .navbar-toggler-icon {
+        width: 1.2em !important;
+        height: 1.2em !important;
+    }
+}
+
+/* Tablet: 768px - 991px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .brand-logo {
+        height: 30px !important;
+    }
+    .kofi-img {
+        height: 32px !important;
+    }
+    .language-toggle {
+        padding: 5px 12px !important;
+        font-size: 13px !important;
+    }
+    .navbar .d-flex.d-lg-none {
+        gap: 8px !important;
+    }
+}
+
+/* Small tablet: 576px - 767px */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .brand-logo {
+        height: 26px !important;
+    }
+    .kofi-img {
+        height: 28px !important;
+    }
+    .language-toggle {
+        padding: 4px 10px !important;
+        font-size: 12px !important;
+    }
+    .navbar .d-flex.d-lg-none {
+        gap: 6px !important;
+    }
+}
+
+/* Mobile: dưới 576px */
+@media screen and (max-width: 575px) {
+    .navbar.fixed-top,
+    nav.navbar {
+        height: 50px !important;
+        min-height: 50px !important;
+        max-height: 50px !important;
+    }
+    
+    .navbar .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    .navbar-collapse {
+        top: 50px !important;
+    }
+    
+    .brand-logo {
+        height: 20px !important;
+    }
+    
+    .kofi-img {
+        height: 24px !important;
+    }
+    
+    .language-toggle {
+        padding: 3px 6px !important;
+        font-size: 11px !important;
+    }
+    
+    .navbar-toggler {
+        padding: 2px 5px !important;
+    }
+    
+    .navbar-toggler-icon {
+        width: 1em !important;
+        height: 1em !important;
+    }
+    
+    .navbar .d-flex.d-lg-none {
+        gap: 4px !important;
+    }
+}

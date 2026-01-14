@@ -1,0 +1,12 @@
+.brand-logo {
+    height: 34px;
+    width: auto;
+    filter: drop-shadow(0 0 9px #1ca7ab) brightness(1.3);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 576px) {
+    .brand-logo {
+        height: 22px;
+    }
+}

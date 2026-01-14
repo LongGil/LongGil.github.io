@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GilongWorld - Dự Án Game AAA Indie</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Unified CSS -->
+    <link rel="icon" type="image/png" href="assets/img/nature/favicon_50x50-removebg-preview.png">
+    <link rel="apple-touch-icon" href="assets/img/nature/favicon_50x50-removebg-preview.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gilda+Display&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/dh-card-image-left-dark.css">
+    <link rel="stylesheet" href="assets/css/Features-Image-images.css">
+    <link rel="stylesheet" href="assets/css/Hero-Features-icons.css">
+    <link rel="stylesheet" href="assets/css/pikaday.min.css">
+    <link rel="stylesheet" href="assets/css/Styles-Loader.css">
+    <link rel="stylesheet" href="assets/css/Video-Parallax-Background-v2-multiple-parallax.css">
+    <link rel="stylesheet" href="assets/css/index-styles.css">
+
+    <link rel="stylesheet" href="assets/css/gilongworld-custom.css">
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+    <section class="Loader-Page">
+        <div class="spinner-wrapper">
+            <div class="spinner-border text-info" role="status"><span class="visually-hidden">Text</span></div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient" style="background: url(&quot;assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30; height: 56px; min-height: 56px; max-height: 56px; padding-top: 0; padding-bottom: 0;">
+        <div class="container" style="display: flex !important; flex-wrap: nowrap !important; align-items: center !important; height: 100%;">
+            <a class="navbar-brand logo" href="index.html" style="flex: 0 1 auto; min-width: 0; overflow: hidden;">
+                <img src="assets/img/nature/LGSTUDIO2_sim_870x100.png" alt="Long Gil Studio" class="brand-logo">
+            </a>
+            
+            <!-- Mobile: Ko-fi, Language Toggle & Hamburger -->
+            <div class="d-flex align-items-center d-lg-none" style="flex: 0 0 auto; flex-wrap: nowrap; gap: 6px; margin-left: auto;">
+                <a href='https://ko-fi.com/A0A01PQDEB' target='_blank' class="d-inline-block">
+                     <img src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' class="kofi-img" style='border: 0;' />
+                </a>
+                <button class="btn language-toggle" onclick="toggleLanguage()" id="langToggleMobile">
+                    🌐 VI
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbarNav" style="flex-wrap: nowrap;">
+                <ul class="navbar-nav ms-auto" style="flex-wrap: nowrap;">
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Trang chủ" data-en="Home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gilongworld-showcase.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="GilongWorld" data-en="GilongWorld">GilongWorld</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Giới thiệu" data-en="About me">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hire-me.html" style="font-weight: bold;font-family: Alatsi, sans-serif;text-shadow: 0px 0px 10px var(--bs-cyan);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+                </ul>
+            
+            <!-- Desktop language toggle & Ko-fi - inside of collapse menu -->
+            <div class="d-none d-lg-flex ms-3 align-items-center" style="flex-shrink: 0; flex-wrap: nowrap; gap: 8px;">
+                <a href='https://ko-fi.com/A0A01PQDEB' target='_blank' class="d-inline-block">
+                    <img src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' class="kofi-img" style='border: 0;' />
+                </a>
+                <button class="btn language-toggle" onclick="toggleLanguage()" id="langToggleDesktop">
+                    🌐 VI
+                </button>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden bg-slate-900">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <!-- BACKGROUND IMAGE PLACEHOLDER -->
+            <div class="w-full h-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 opacity-90"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-block px-4 py-1 mb-6 border border-cyan-500/30 rounded-full bg-cyan-900/20 backdrop-blur-sm">
+                <span class="text-cyan-400 font-bold tracking-widest text-sm" data-vi="DỰ ÁN ĐANG PHÁT TRIỂN" data-en="PROJECT IN DEVELOPMENT">DỰ ÁN ĐANG PHÁT TRIỂN</span>
+            </div>
+            <h1 class="text-5xl md:text-8xl font-bold mb-6 leading-tight font-tech">
+                <span data-vi="KỶ NGUYÊN" data-en="ERA">KỶ NGUYÊN</span> <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-500 to-rose-500" data-vi="AAA INDIE" data-en="AAA INDIE">AAA INDIE</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 font-light" data-vi="Chào mừng đến với <strong>GilongWorld</strong>. Một trải nghiệm game thế giới mở đậm chất điện ảnh, được xây dựng với tâm huyết và công nghệ tiên tiến nhất." data-en="Welcome to <strong>GilongWorld</strong>. A cinematic open-world gaming experience, built with passion and cutting-edge technology.">
+                Chào mừng đến với <strong>GilongWorld</strong>. Một trải nghiệm game thế giới mở đậm chất điện ảnh, được xây dựng với tâm huyết và công nghệ tiên tiến nhất.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#media" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-lg text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1" data-vi="Xem Trailer" data-en="Watch Trailer">
+                    Xem Trailer
+                </a>
+                <a href="#features" class="px-8 py-4 bg-slate-800 border border-slate-600 rounded-lg text-white font-bold text-lg hover:bg-slate-700 transition-all" data-vi="Tìm hiểu thêm" data-en="Learn More">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: About & Concept -->
+    <section id="about" class="py-24 bg-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl font-bold mb-6 text-white font-tech border-l-4 border-cyan-500 pl-4" data-vi="Câu Chuyện & Tầm Nhìn" data-en="Story & Vision">Câu Chuyện & Tầm Nhìn</h2>
+                    <p class="text-slate-300 text-lg mb-6 leading-relaxed" data-vi="GilongWorld không chỉ là một trò chơi, đó là một tham vọng. Chúng tôi đang xây dựng một vũ trụ nơi ranh giới giữa thực và ảo bị xóa nhòa." data-en="GilongWorld is not just a game, it's an ambition. We are building a universe where the boundary between reality and virtuality is blurred.">
+                        GilongWorld không chỉ là một trò chơi, đó là một tham vọng. Chúng tôi đang xây dựng một vũ trụ nơi ranh giới giữa thực và ảo bị xóa nhòa. 
+                    </p>
+                    <p class="text-slate-300 text-lg mb-6 leading-relaxed" data-vi="Lấy cảm hứng từ những tựa game AAA đỉnh cao nhưng giữ vững tinh thần tự do của Indie, dự án tập trung vào cốt truyện sâu sắc, cơ chế chiến đấu sáng tạo và đồ họa Next-Gen." data-en="Inspired by top-tier AAA games but maintaining the free spirit of Indie, the project focuses on deep storytelling, innovative combat mechanics, and Next-Gen graphics.">
+                        Lấy cảm hứng từ những tựa game AAA đỉnh cao nhưng giữ vững tinh thần tự do của Indie, dự án tập trung vào cốt truyện sâu sắc, cơ chế chiến đấu sáng tạo và đồ họa Next-Gen.
+                    </p>
+                </div>
+
+                <!-- IMAGE PLACEHOLDER -->
+                <div class="order-1 md:order-2">
+                    <div class="w-full h-[400px] md:h-[500px] rounded-2xl shadow-2xl relative group overflow-hidden">
+                        <img src="assets/img/nature/GilongWorld-anykey.png" alt="GilongWorld Vision" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 border-2 border-cyan-500/0 group-hover:border-cyan-500/50 rounded-2xl transition-all duration-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Media -->
+    <section id="media" class="py-24 bg-slate-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white font-tech mb-4" data-vi="Trailer & Gameplay" data-en="Trailer & Gameplay">Trailer & Gameplay</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto"></div>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="max-w-5xl mx-auto mb-16">
+                <div class="video-container bg-black">
+                    <iframe 
+                        src="https://www.youtube.com/embed/A3d0-yikSDA" 
+                        title="GilongWorld Trailer"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- GALLERY -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="h-64 media-placeholder rounded-lg hover:scale-[1.02] transform transition-transform">
+                    <span class="text-sm font-bold">SCREENSHOT 1</span>
+                </div>
+                <div class="h-64 media-placeholder rounded-lg hover:scale-[1.02] transform transition-transform">
+                    <span class="text-sm font-bold">SCREENSHOT 2</span>
+                </div>
+                <div class="h-64 media-placeholder rounded-lg hover:scale-[1.02] transform transition-transform">
+                    <span class="text-sm font-bold">SCREENSHOT 3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Features -->
+    <section id="features" class="py-24 bg-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Chart -->
+                <div>
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-6 font-tech text-center" data-vi="Chỉ Số Game" data-en="Game Stats">Chỉ Số Game</h3>
+                    <div class="chart-container bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 backdrop-blur-sm">
+                        <canvas id="gameStatsChart"></canvas>
+                    </div>
+                </div>
+                <!-- List -->
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-bold text-white font-tech" data-vi="Đặc Điểm Nổi Bật" data-en="Key Features">Đặc Điểm Nổi Bật</h2>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-xl">1</div>
+                        <div class="ml-6">
+                            <h4 class="text-xl font-bold text-white mb-2" data-vi="Đồ Họa Next-Gen" data-en="Next-Gen Graphics">Đồ Họa Next-Gen</h4>
+                            <p class="text-slate-400" data-vi="Tận dụng sức mạnh phần cứng mới nhất cho hình ảnh siêu thực." data-en="Utilize the latest hardware power for hyper-realistic visuals.">Tận dụng sức mạnh phần cứng mới nhất cho hình ảnh siêu thực.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">2</div>
+                        <div class="ml-6">
+                            <h4 class="text-xl font-bold text-white mb-2" data-vi="Thế Giới Mở" data-en="Open World">Thế Giới Mở</h4>
+                            <p class="text-slate-400" data-vi="Tự do khám phá, không giới hạn bởi màn hình tải." data-en="Explore freely, not limited by loading screens.">Tự do khám phá, không giới hạn bởi màn hình tải.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-rose-500 to-orange-600 flex items-center justify-center text-white font-bold text-xl">3</div>
+                        <div class="ml-6">
+                            <h4 class="text-xl font-bold text-white mb-2" data-vi="Combat Vật Lý" data-en="Physics-based Combat">Combat Vật Lý</h4>
+                            <p class="text-slate-400" data-vi="Va chạm chân thực, kỹ năng định hướng và phản xạ nhanh." data-en="Realistic collisions, directional skills, and quick reflexes.">Va chạm chân thực, kỹ năng định hướng và phản xạ nhanh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Roadmap (FIXED: 3-ROW GRID) -->
+    <section id="roadmap" class="py-24 bg-slate-800/30 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-white font-tech mb-16" data-vi="Lộ Trình Phát Triển" data-en="Development Roadmap">Lộ Trình Phát Triển</h2>
+            
+            <!-- DESKTOP LAYOUT: 3 ROWS -->
+            <div class="hidden md:grid grid-cols-4 gap-4 relative">
+                
+                <!-- ROW 1: TOP CARDS (Column 2 & 4) -->
+                <!-- Col 1: Empty -->
+                <div></div>
+                <!-- Col 2: Content -->
+                <div class="flex flex-col justify-end pb-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors shadow-lg">
+                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider" data-vi="Giai đoạn 2 (Hiện tại)" data-en="Phase 2 (Current)">Giai đoạn 2 (Hiện tại)</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2" data-vi="Sản Xuất" data-en="Production">Sản Xuất</h3>
+                        <ul class="text-sm text-slate-400 list-disc list-inside space-y-1">
+                            <li>Asset 3D & Môi trường</li>
+                            <li>Lập trình Gameplay</li>
+                            <li>Level Demo</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Col 3: Empty -->
+                <div></div>
+                <!-- Col 4: Content -->
+                <div class="flex flex-col justify-end pb-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-rose-500 transition-colors shadow-lg">
+                        <span class="text-xs font-bold text-rose-400 uppercase tracking-wider" data-vi="Giai đoạn 4" data-en="Phase 4">Giai đoạn 4</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2" data-vi="Phát Hành" data-en="Release">Phát Hành</h3>
+                        <ul class="text-sm text-slate-400 list-disc list-inside space-y-1">
+                            <li>Early Access Steam</li>
+                            <li>Marketing</li>
+                            <li>DLC Roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ROW 2: TIMELINE (Line & Dots) -->
+                <div class="col-span-4 relative h-8 flex items-center">
+                    <!-- The Line -->
+                    <div class="timeline-track shadow-[0_0_10px_rgba(51,65,85,0.5)]"></div>
+                    
+                    <!-- The Dots (Absolute positioning relative to column width would be hard, so we use grid again) -->
+                    <div class="absolute inset-0 grid grid-cols-4 w-full h-full">
+                        <div class="flex items-center justify-center"><div class="timeline-dot bg-cyan-500 shadow-[0_0_10px_#06b6d4]"></div></div>
+                        <div class="flex items-center justify-center"><div class="timeline-dot bg-indigo-500 shadow-[0_0_10px_#6366f1]"></div></div>
+                        <div class="flex items-center justify-center"><div class="timeline-dot bg-purple-500 shadow-[0_0_10px_#a855f7]"></div></div>
+                        <div class="flex items-center justify-center"><div class="timeline-dot bg-rose-500 shadow-[0_0_10px_#f43f5e]"></div></div>
+                    </div>
+                </div>
+
+                <!-- ROW 3: BOTTOM CARDS (Column 1 & 3) -->
+                <!-- Col 1: Content -->
+                <div class="flex flex-col justify-start pt-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-colors shadow-lg">
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider" data-vi="Giai đoạn 1" data-en="Phase 1">Giai đoạn 1</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2" data-vi="Khởi Tạo" data-en="Inception">Khởi Tạo</h3>
+                        <ul class="text-sm text-slate-400 list-disc list-inside space-y-1">
+                            <li data-vi="Lên ý tưởng" data-en="Ideation">Lên ý tưởng</li>
+                            <li data-vi="Tuyển dụng nhân sự" data-en="Recruiting">Tuyển dụng nhân sự</li>
+                            <li data-vi="Prototype" data-en="Prototype">Prototype</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Col 2: Empty -->
+                <div></div>
+                <!-- Col 3: Content -->
+                <div class="flex flex-col justify-start pt-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-purple-500 transition-colors shadow-lg">
+                        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider" data-vi="Giai đoạn 3" data-en="Phase 3">Giai đoạn 3</span>
+                        <h3 class="text-xl font-bold text-white mt-1 mb-2" data-vi="Alpha Test" data-en="Alpha Test">Alpha Test</h3>
+                        <ul class="text-sm text-slate-400 list-disc list-inside space-y-1">
+                            <li data-vi="Thử nghiệm nội bộ" data-en="Internal Testing">Thử nghiệm nội bộ</li>
+                            <li data-vi="Tối ưu hóa" data-en="Optimization">Tối ưu hóa</li>
+                            <li data-vi="Ra mắt Trailer" data-en="Trailer Launch">Ra mắt Trailer</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Col 4: Empty -->
+                <div></div>
+            </div>
+
+            <!-- MOBILE LAYOUT (VERTICAL) -->
+            <div class="md:hidden relative pl-8 space-y-8">
+                <div class="timeline-vertical-line"></div>
+                
+                <!-- Item 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[20px] top-4 w-4 h-4 bg-cyan-500 rounded-full border-4 border-slate-900 -translate-x-1/2 shadow-[0_0_10px_#06b6d4]"></div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider" data-vi="Giai đoạn 1" data-en="Phase 1">Giai đoạn 1</span>
+                        <h3 class="text-xl font-bold text-white mt-1" data-vi="Khởi Tạo" data-en="Inception">Khởi Tạo</h3>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[20px] top-4 w-4 h-4 bg-indigo-500 rounded-full border-4 border-slate-900 -translate-x-1/2 shadow-[0_0_10px_#6366f1]"></div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider" data-vi="Giai đoạn 2" data-en="Phase 2">Giai đoạn 2</span>
+                        <h3 class="text-xl font-bold text-white mt-1" data-vi="Sản Xuất" data-en="Production">Sản Xuất</h3>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[20px] top-4 w-4 h-4 bg-purple-500 rounded-full border-4 border-slate-900 -translate-x-1/2 shadow-[0_0_10px_#a855f7]"></div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider" data-vi="Giai đoạn 3" data-en="Phase 3">Giai đoạn 3</span>
+                        <h3 class="text-xl font-bold text-white mt-1" data-vi="Alpha Test" data-en="Alpha Test">Alpha Test</h3>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative">
+                    <div class="absolute -left-[20px] top-4 w-4 h-4 bg-rose-500 rounded-full border-4 border-slate-900 -translate-x-1/2 shadow-[0_0_10px_#f43f5e]"></div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-rose-400 uppercase tracking-wider" data-vi="Giai đoạn 4" data-en="Phase 4">Giai đoạn 4</span>
+                        <h3 class="text-xl font-bold text-white mt-1" data-vi="Phát Hành" data-en="Release">Phát Hành</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links"><a href="hire-me.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Liên hệ" data-en="Contact">Liên hệ</a><a href="#" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Huỳnh Long Gil" data-en="Huynh Long Gil">Huỳnh Long Gil</a><a href="cv.html" style="--bs-body-color: #097df2;font-family: Alatsi, sans-serif;font-style: italic;font-weight: bold;color: rgb(255,255,255);text-shadow: 0px 0px 10px var(--bs-primary);" data-vi="Giới thiệu" data-en="About me">Giới thiệu</a></div>
+            <div class="social-icons"><a href="https://www.facebook.com/huynhlonggil" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/longgilstudio" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-instagram-outline"></i></a><a href="https://x.com/GilHuynhLong" target="_blank" style="background: rgb(5,10,48);"><i class="icon ion-social-twitter"></i></a></div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Loader.js"></script>
+    <script src="assets/js/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/Video-Parallax-Background-v2-multiple-parallax.js"></script>
+    <script>
+        let currentLanguage = 'vi';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
+            
+            // Update all elements with data-vi and data-en attributes
+            const elements = document.querySelectorAll('[data-vi][data-en]');
+            elements.forEach(element => {
+                const newText = element.getAttribute(`data-${currentLanguage}`);
+                if (newText) {
+                    element.innerHTML = newText;
+                }
+            });
+            
+            // Update both toggle buttons (mobile and desktop)
+            const toggleBtnMobile = document.getElementById('langToggleMobile');
+            const toggleBtnDesktop = document.getElementById('langToggleDesktop');
+            const buttonText = currentLanguage === 'vi' ? '🌐 VI' : '🌐 EN';
+            
+            if (toggleBtnMobile) toggleBtnMobile.innerHTML = buttonText;
+            if (toggleBtnDesktop) toggleBtnDesktop.innerHTML = buttonText;
+            
+            // Update Chart.js labels if chart exists
+            if (window.gameStatsChart) {
+                const chartLabelsVi = ['Đồ Họa', 'Cốt Truyện', 'Độ Khó', 'Tự Do', 'Hành Động', 'Chiến Thuật'];
+                const chartLabelsEn = ['Graphics', 'Story', 'Difficulty', 'Freedom', 'Action', 'Strategy'];
+                
+                // Helper to wrap text
+                const wrapLabel = (label) => {
+                    if (typeof label !== 'string' || label.length <= 16) return label;
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = words[0];
+                    for (let i = 1; i < words.length; i++) {
+                        if ((currentLine + " " + words[i]).length <= 16) {
+                            currentLine += " " + words[i];
+                        } else {
+                            lines.push(currentLine);
+                            currentLine = words[i];
+                        }
+                    }
+                    lines.push(currentLine);
+                    return lines;
+                };
+
+                const newLabelsRaw = currentLanguage === 'vi' ? chartLabelsVi : chartLabelsEn;
+                window.gameStatsChart.data.labels = newLabelsRaw.map(wrapLabel);
+                window.gameStatsChart.update();
+            }
+
+            // Save language preference
+            localStorage.setItem('preferredLanguage', currentLanguage);
+        }
+        
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            
+            // Ensure buttons have text content even if HTML was empty
+            const toggleBtnMobile = document.getElementById('langToggleMobile');
+            const toggleBtnDesktop = document.getElementById('langToggleDesktop');
+            const initialText = (savedLanguage === 'en' || currentLanguage === 'en') ? '🌐 EN' : '🌐 VI';
+            
+            if (toggleBtnMobile && !toggleBtnMobile.innerHTML.trim()) toggleBtnMobile.innerHTML = initialText;
+            if (toggleBtnDesktop && !toggleBtnDesktop.innerHTML.trim()) toggleBtnDesktop.innerHTML = initialText;
+
+            if (savedLanguage && savedLanguage !== currentLanguage) {
+                toggleLanguage();
+            }
+        });
+    </script>
+    <script>
+        function wrapLabel(label) {
+            if (typeof label !== 'string' || label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= 16) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        Chart.defaults.font.family = "'Be Vietnam Pro', sans-serif";
+        Chart.defaults.color = '#94a3b8';
+
+        const ctxStats = document.getElementById('gameStatsChart').getContext('2d');
+        
+        // Define labels for both languages
+        const chartLabelsVi = ['Đồ Họa', 'Cốt Truyện', 'Độ Khó', 'Tự Do', 'Hành Động', 'Chiến Thuật'];
+        const chartLabelsEn = ['Graphics', 'Story', 'Difficulty', 'Freedom', 'Action', 'Strategy'];
+        
+        // Select initial labels based on current language
+        const initialLabels = (typeof currentLanguage !== 'undefined' && currentLanguage === 'en') ? chartLabelsEn : chartLabelsVi;
+        const labels = initialLabels.map(wrapLabel);
+
+        // Assign to window object so it can be accessed by toggleLanguage
+        window.gameStatsChart = new Chart(ctxStats, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Chỉ số',
+                    data: [95, 90, 80, 85, 75, 60],
+                    fill: true,
+                    backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                    borderColor: '#06b6d4',
+                    pointBackgroundColor: '#06b6d4',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#06b6d4',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(148, 163, 184, 0.2)' },
+                        grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                        pointLabels: {
+                            color: '#e2e8f0',
+                            font: { size: 14, weight: 'bold' }
+                        },
+                        ticks: { display: false, backdropColor: 'transparent' },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleColor: '#06b6d4',
+                        bodyColor: '#fff',
+                        borderColor: '#1e293b',
+                        borderWidth: 1,
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
