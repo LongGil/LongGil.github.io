@@ -1,0 +1,41 @@
+# Long Gil Studio
+
+> Long Gil Studio is a Vietnamese independent game development studio founded by Huynh Long Gil, aiming to blend AAA quality with indie creativity ("AAA Indie Game").
+
+## Core Projects
+
+### GilongWorld (Sci-Fi Action RPG)
+- **URL**: [GilongWorld on Steam](https://store.steampowered.com/app/4615990/GilongWorld/) / [Official Website](https://gilongworld.com)
+- **Description**: An upcoming Sci-Fi Action RPG game. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world.
+- **Platforms**: Windows PC.
+
+### Mobile Applications & Games
+- **Fruit Dodgeball**: An arcade game where players control a flying ball, collide, and avoid obstacles to score points. Available on [Google Play](https://play.google.com/store/apps/details?id=com.tenHoGil.FruitDodgeball) and [App Store](https://apps.apple.com/do/app/fruit-dodgeball/id6748839575).
+- **CTU - TKB - KHHT**: A course registration, scheduling, and learning helper application specifically designed for students of Can Tho University. Available on [Google Play](https://play.google.com/store/apps/details?id=com.Gilong.KHHT) and [App Store](https://apps.apple.com/do/app/ctu-%C4%91%C4%83ng-k%C3%BD-hp-khht/id6748887877).
+- **Cute Hide: Query-chan**: A cute hide-and-seek mobile game featuring the anime character Query-chan. Available on [Google Play](https://play.google.com/store/apps/details?id=com.Gilong.CuteHide).
+- **Quiz 3000 English Words**: An educational mobile app helping learners memorize the Oxford 3000 core English words through quizzes. Available on [Google Play](https://play.google.com/store/apps/details?id=com.Gilong.E3000VocabQuiz).
+
+---
+
+## About the Founder
+
+- **Founder**: Huynh Long Gil (also known as Gil Huynh Long)
+- **Background**: Computer Science graduate from Can Tho University (Class of 2021 - 2025). Unity Developer since May 2022.
+- **Skills**: C#, Unity Engine, Software Architecture, Design Patterns, Game Design.
+- **Profile**: Detailed info is on the [About Me Page](https://longgilstudio.com/cv.html).
+
+---
+
+## Contact & Links
+
+- **Email**: info@longgilstudio.com / longgil.studio@gmail.com
+- **HQ Location**: Quach Pham Bac, Dam Doi, Ca Mau, Vietnam.
+- **Contact Form**: [Contact Page](https://longgilstudio.com/hire-me.html)
+- **Social Media & Communities**:
+  - [Discord Server](https://discord.gg/DbzpYe5T2P)
+  - [YouTube Channel](https://www.youtube.com/@LongGilStudio)
+  - [Facebook Page](https://www.facebook.com/profile.php?id=61575277238540)
+  - [GitHub Profile](https://github.com/LongGilStudio)
+  - [Itch.io Store](https://longgilstudio.itch.io/)
+  - [X (Twitter)](https://x.com/GilHuynhLong)
+  - [Instagram](https://www.instagram.com/longgilstudio)

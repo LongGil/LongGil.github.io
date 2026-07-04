@@ -1,0 +1,45 @@
+# Cho phép tất cả các trình thu thập thông thường (Google, Bing)
+User-agent: *
+Allow: /
+
+# Chấp thuận rõ ràng các bọ AI Tìm kiếm mang lại giá trị trích dẫn
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Từ chối các bọ thu thập thư rác độc hại và trình cào dữ liệu kém chất lượng
+User-agent: 360Spider
+Disallow: /
+
+User-agent: A6-Indexer
+Disallow: /
+
+# Từ chối các bọ phân tích SEO và trình cào dữ liệu tiêu tốn băng thông lớn
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Rogerbot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Liên kết dẫn đường đến bản đồ toàn diện của hệ thống tĩnh
+Sitemap: https://longgilstudio.com/sitemap.xml
