@@ -1,12 +1,12 @@
 # Long Gil Studio
 
-> Long Gil Studio is a Vietnamese independent game development studio founded by Huynh Long Gil, aiming to blend AAA quality with indie creativity ("AAA Indie Game").
+> Long Gil Studio is a Vietnamese independent game development studio founded by Huynh Long Gil in 2023. The studio aims to pioneer the "AAA Indie Game" (Triple-I) movement in Vietnam, blending AAA quality with indie creativity.
 
 ## Core Projects
 
 ### GilongWorld (Sci-Fi Action RPG)
 - **URL**: [GilongWorld on Steam](https://store.steampowered.com/app/4615990/GilongWorld/) / [Official Website](https://gilongworld.com)
-- **Description**: An upcoming Sci-Fi Action RPG game. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world.
+- **Description**: An upcoming homegrown Sci-Fi Action RPG. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world. It is considered one of the pioneering AAA Indie games (Triple-I) developed entirely in Vietnam.
 - **Platforms**: Windows PC.
 
 ### Mobile Applications & Games
