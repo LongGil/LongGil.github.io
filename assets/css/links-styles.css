@@ -1,0 +1,461 @@
+/* ============================================================
+   Links Page Styles — Long Gil Studio Link-in-Bio
+   Design: Dark Sci-Fi glassmorphism, consistent with main site
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.links-page {
+    font-family: 'Exo 2', 'Segoe UI', sans-serif;
+    background: #050a30;
+    color: #e0e6ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ---------- Animated Background ---------- */
+.links-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(9, 125, 242, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(74, 144, 226, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 60%, rgba(0, 188, 212, 0.05) 0%, transparent 60%),
+        #050a30;
+    pointer-events: none;
+}
+
+/* Subtle floating particles */
+.links-bg::before,
+.links-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: float-particle 20s ease-in-out infinite;
+}
+
+.links-bg::before {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 188, 212, 0.3), transparent 70%);
+    top: 10%;
+    left: -5%;
+    animation-delay: 0s;
+}
+
+.links-bg::after {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.25), transparent 70%);
+    bottom: 15%;
+    right: -5%;
+    animation-delay: -10s;
+}
+
+@keyframes float-particle {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.05); }
+    50% { transform: translate(-10px, 30px) scale(0.95); }
+    75% { transform: translate(20px, 10px) scale(1.02); }
+}
+
+/* ---------- Main Container ---------- */
+.links-container {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    min-height: 100vh;
+}
+
+/* ---------- Profile Header ---------- */
+.links-profile {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.links-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 188, 212, 0.5);
+    box-shadow:
+        0 0 20px rgba(0, 188, 212, 0.2),
+        0 0 40px rgba(0, 188, 212, 0.05);
+    object-fit: cover;
+    margin-bottom: 16px;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.links-avatar:hover {
+    border-color: rgba(0, 188, 212, 0.8);
+    box-shadow:
+        0 0 25px rgba(0, 188, 212, 0.35),
+        0 0 50px rgba(0, 188, 212, 0.1);
+}
+
+.links-name {
+    font-family: 'Alatsi', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-shadow: 0 0 15px rgba(9, 125, 242, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.links-tagline {
+    font-size: 14px;
+    color: rgba(224, 230, 255, 0.6);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+/* ---------- Language Toggle ---------- */
+.links-lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    color: rgba(0, 188, 212, 0.8);
+    font-family: 'Alatsi', sans-serif;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.links-lang-toggle:hover {
+    background: rgba(0, 188, 212, 0.1);
+    border-color: rgba(0, 188, 212, 0.6);
+    color: #00bcd4;
+}
+
+/* ---------- Steam CTA (Hero Button) ---------- */
+.links-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 24px;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 50%, #1b2838 100%);
+    border: 2px solid rgba(102, 192, 244, 0.5);
+    border-radius: 14px;
+    color: #c7d5e0;
+    font-family: 'Alatsi', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    box-shadow:
+        0 0 20px rgba(102, 192, 244, 0.15),
+        0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.links-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 30%, rgba(102, 192, 244, 0.08) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.links-cta:hover {
+    border-color: rgba(102, 192, 244, 0.8);
+    color: #ffffff;
+    box-shadow:
+        0 0 30px rgba(102, 192, 244, 0.25),
+        0 6px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.links-cta:hover::before {
+    transform: translateX(100%);
+}
+
+.links-cta svg {
+    flex-shrink: 0;
+}
+
+.links-cta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+}
+
+.links-cta-sub {
+    font-size: 11px;
+    opacity: 0.6;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---------- Section Headers ---------- */
+.links-section {
+    margin-bottom: 24px;
+}
+
+.links-section-title {
+    font-family: 'Alatsi', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(0, 188, 212, 0.5);
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+/* ---------- Link Cards ---------- */
+.links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: #e0e6ff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.04), rgba(74, 144, 226, 0.04));
+    transition: opacity 0.3s ease;
+}
+
+.link-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 188, 212, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 188, 212, 0.06);
+}
+
+.link-card:hover::after {
+    opacity: 1;
+}
+
+.link-card:active {
+    transform: translateY(0);
+    transition-duration: 0.1s;
+}
+
+/* Link icon container */
+.link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover .link-icon {
+    transform: scale(1.08);
+}
+
+.link-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Platform-specific icon colors */
+.link-icon--steam { background: rgba(27, 40, 56, 0.8); color: #66c0f4; }
+.link-icon--youtube { background: rgba(255, 0, 0, 0.12); color: #ff4444; }
+.link-icon--discord { background: rgba(88, 101, 242, 0.15); color: #5865f2; }
+.link-icon--twitter { background: rgba(255, 255, 255, 0.08); color: #e0e0e0; }
+.link-icon--facebook { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
+.link-icon--instagram { background: rgba(225, 48, 108, 0.12); color: #e1306c; }
+.link-icon--tiktok { background: rgba(255, 255, 255, 0.06); color: #ff0050; }
+.link-icon--threads { background: rgba(255, 255, 255, 0.08); color: #e0e0e0; }
+.link-icon--linkedin { background: rgba(10, 102, 194, 0.15); color: #0a66c2; }
+.link-icon--github { background: rgba(255, 255, 255, 0.08); color: #e0e0e0; }
+.link-icon--bluesky { background: rgba(0, 133, 255, 0.12); color: #0085ff; }
+.link-icon--mastodon { background: rgba(99, 100, 255, 0.12); color: #6364ff; }
+.link-icon--tumblr { background: rgba(53, 70, 92, 0.2); color: #35465c; }
+.link-icon--pinterest { background: rgba(230, 0, 35, 0.12); color: #e60023; }
+.link-icon--kofi { background: rgba(255, 94, 91, 0.12); color: #ff5e5b; }
+.link-icon--patreon { background: rgba(255, 66, 77, 0.12); color: #ff424d; }
+.link-icon--itchio { background: rgba(250, 92, 92, 0.12); color: #fa5c5c; }
+.link-icon--gamejolt { background: rgba(46, 211, 106, 0.12); color: #2ed36a; }
+.link-icon--indiedb { background: rgba(237, 28, 36, 0.12); color: #ed1c24; }
+.link-icon--website { background: rgba(0, 188, 212, 0.1); color: #00bcd4; }
+.link-icon--blog { background: rgba(255, 193, 7, 0.1); color: #ffc107; }
+
+.link-text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.link-text-label {
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.link-text-sub {
+    font-size: 12px;
+    color: rgba(224, 230, 255, 0.4);
+    font-weight: 300;
+    margin-top: 1px;
+}
+
+/* Arrow indicator */
+.link-arrow {
+    position: relative;
+    z-index: 1;
+    color: rgba(224, 230, 255, 0.15);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.link-card:hover .link-arrow {
+    color: rgba(0, 188, 212, 0.5);
+    transform: translateX(3px);
+}
+
+/* ---------- Footer ---------- */
+.links-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.links-footer p {
+    font-size: 12px;
+    color: rgba(224, 230, 255, 0.25);
+    letter-spacing: 0.3px;
+}
+
+.links-footer a {
+    color: rgba(0, 188, 212, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links-footer a:hover {
+    color: rgba(0, 188, 212, 0.7);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 520px) {
+    .links-container {
+        padding: 32px 16px 48px;
+    }
+
+    .links-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .links-name {
+        font-size: 21px;
+    }
+
+    .links-cta {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    .link-card {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .link-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .link-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+/* ---------- Entrance Animations ---------- */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.links-profile {
+    animation: fade-up 0.5s ease backwards;
+}
+
+.links-cta {
+    animation: fade-up 0.5s ease 0.1s backwards;
+}
+
+.links-section:nth-child(1) { animation: fade-up 0.5s ease 0.15s backwards; }
+.links-section:nth-child(2) { animation: fade-up 0.5s ease 0.2s backwards; }
+.links-section:nth-child(3) { animation: fade-up 0.5s ease 0.25s backwards; }
+.links-section:nth-child(4) { animation: fade-up 0.5s ease 0.3s backwards; }
+.links-section:nth-child(5) { animation: fade-up 0.5s ease 0.35s backwards; }
+
+.links-footer {
+    animation: fade-up 0.5s ease 0.4s backwards;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
