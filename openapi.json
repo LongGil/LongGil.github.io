@@ -1,0 +1,478 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Long Gil Studio API & Content Specification",
+    "summary": "Public content and machine-readable endpoints for Long Gil Studio (longgilstudio.com).",
+    "description": "Long Gil Studio is an independent game development studio from Vietnam, pioneering the AAA Indie Game (Triple-I) movement. This OpenAPI specification describes all publicly available HTML, Markdown, JSON, and XML endpoints on longgilstudio.com, including structured JSON error responses.",
+    "version": "1.1.0",
+    "contact": {
+      "name": "Long Gil Studio",
+      "url": "https://longgilstudio.com",
+      "email": "info@longgilstudio.com"
+    },
+    "license": {
+      "name": "All Rights Reserved",
+      "url": "https://longgilstudio.com/"
+    },
+    "x-logo": {
+      "url": "https://longgilstudio.com/assets/img/nature/logo_GL_nb2.png"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://longgilstudio.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getHomepage",
+        "summary": "Homepage (HTML or Markdown via Content Negotiation)",
+        "description": "Returns the Long Gil Studio homepage with studio overview, featured projects (GilongWorld, Fruit Dodgeball, CTU-KHHT, Cute Hide), and FAQ. Supports content negotiation via the Accept header (text/html or text/markdown).",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "description": "Content negotiation header. Use 'text/markdown' to request Markdown or 'text/html' for HTML.",
+            "schema": {
+              "type": "string",
+              "default": "text/html",
+              "enum": ["text/html", "text/markdown", "application/json"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Homepage content in HTML or Markdown format",
+            "headers": {
+              "Vary": {
+                "description": "Indicates response varies based on the Accept request header",
+                "schema": {
+                  "type": "string",
+                  "example": "Accept"
+                }
+              }
+            },
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "operationId": "getHomepageMarkdown",
+        "summary": "Homepage content in Markdown",
+        "description": "Full homepage content rendered as clean Markdown for AI agents that prefer structured text over HTML.",
+        "responses": {
+          "200": {
+            "description": "Markdown homepage content",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "summary": "LLMs.txt — Machine-readable studio overview",
+        "description": "Markdown-formatted overview of Long Gil Studio, its projects, founder, and contact information following the llms.txt standard.",
+        "responses": {
+          "200": {
+            "description": "Markdown llms.txt content",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/cv.html": {
+      "get": {
+        "operationId": "getAbout",
+        "summary": "About the founder — Huynh Long Gil",
+        "description": "Detailed profile page of the founder including skills, education (Can Tho University, Computer Science 2021-2025), and experience as a Unity Developer.",
+        "responses": {
+          "200": {
+            "description": "HTML about page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/hire-me.html": {
+      "get": {
+        "operationId": "getContact",
+        "summary": "Contact and hiring page",
+        "description": "Contact form and hiring information for Long Gil Studio. Email: info@longgilstudio.com, HQ: Ca Mau, Vietnam.",
+        "responses": {
+          "200": {
+            "description": "HTML contact page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/links.html": {
+      "get": {
+        "operationId": "getLinks",
+        "summary": "All social media and community links",
+        "description": "Link-in-bio page with all Long Gil Studio social media profiles, communities, and store links.",
+        "responses": {
+          "200": {
+            "description": "HTML links page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "operationId": "getSitemap",
+        "summary": "XML Sitemap",
+        "description": "Standard XML sitemap listing all public pages and machine-readable resources.",
+        "responses": {
+          "200": {
+            "description": "XML sitemap",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/robots.txt": {
+      "get": {
+        "operationId": "getRobotsTxt",
+        "summary": "Robots.txt",
+        "description": "Standard robots.txt with explicit allow rules for AI agent user-agents.",
+        "responses": {
+          "200": {
+            "description": "Plain text robots directives",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "operationId": "getOpenApiJson",
+        "summary": "OpenAPI 3.1.0 specification (JSON)",
+        "description": "OpenAPI 3.1.0 specification in JSON format describing all public endpoints and error schemas.",
+        "responses": {
+          "200": {
+            "description": "OpenAPI JSON specification",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/api/openapi.yaml": {
+      "get": {
+        "operationId": "getOpenApiYaml",
+        "summary": "OpenAPI 3.1.0 specification (YAML)",
+        "description": "OpenAPI 3.1.0 specification in YAML format describing all public endpoints and error schemas.",
+        "responses": {
+          "200": {
+            "description": "OpenAPI YAML specification",
+            "content": {
+              "application/yaml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/.well-known/ai-plugin.json": {
+      "get": {
+        "operationId": "getAiPluginManifest",
+        "summary": "AI Plugin & Agent Discovery Manifest",
+        "description": "Machine-readable manifest linking AI agents to the OpenAPI specification and studio metadata.",
+        "responses": {
+          "200": {
+            "description": "AI plugin manifest JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "default": {
+            "$ref": "#/components/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/api/404.json": {
+      "get": {
+        "operationId": "getJsonNotFoundError",
+        "summary": "Structured JSON 404 Error Schema Endpoint",
+        "description": "Returns the canonical structured JSON error response with error code, message, and resolution hints for agents.",
+        "responses": {
+          "200": {
+            "description": "Structured JSON error object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": ["code", "message", "status", "resolution", "error"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI reference identifying the problem type",
+            "example": "https://longgilstudio.com/openapi.json#components/schemas/ErrorResponse"
+          },
+          "title": {
+            "type": "string",
+            "description": "Short human-readable summary of the problem type",
+            "example": "Resource Not Found"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 404
+          },
+          "code": {
+            "type": "string",
+            "description": "Machine-readable error code",
+            "example": "RESOURCE_NOT_FOUND"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human- and agent-readable explanation of the error",
+            "example": "The requested URL or API endpoint does not exist on longgilstudio.com."
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Actionable hint for agents on how to resolve the error",
+            "example": "Check valid endpoints in https://longgilstudio.com/openapi.json, https://longgilstudio.com/api/openapi.yaml, or https://longgilstudio.com/llms.txt."
+          },
+          "error": {
+            "type": "object",
+            "required": ["code", "status", "message", "resolution"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "RESOURCE_NOT_FOUND"
+              },
+              "status": {
+                "type": "integer",
+                "example": 404
+              },
+              "message": {
+                "type": "string",
+                "example": "The requested URL or API endpoint does not exist on longgilstudio.com."
+              },
+              "resolution": {
+                "type": "string",
+                "example": "Check valid endpoints in https://longgilstudio.com/openapi.json or https://longgilstudio.com/llms.txt."
+              },
+              "available_endpoints": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "NotFoundError": {
+        "description": "The requested resource was not found (structured JSON error response).",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "type": "https://longgilstudio.com/openapi.json#components/schemas/ErrorResponse",
+              "title": "Resource Not Found",
+              "status": 404,
+              "code": "RESOURCE_NOT_FOUND",
+              "message": "The requested URL or API endpoint does not exist on longgilstudio.com.",
+              "resolution": "Check valid endpoints in https://longgilstudio.com/openapi.json, https://longgilstudio.com/api/openapi.yaml, or https://longgilstudio.com/llms.txt.",
+              "error": {
+                "code": "RESOURCE_NOT_FOUND",
+                "status": 404,
+                "message": "The requested URL or API endpoint does not exist on longgilstudio.com.",
+                "resolution": "Check valid endpoints in https://longgilstudio.com/openapi.json or https://longgilstudio.com/llms.txt."
+              }
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "DefaultError": {
+        "description": "Structured JSON error response with error code, message, and resolution hint.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          },
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "LLMs.txt — Machine-readable studio overview for AI agents",
+    "url": "https://longgilstudio.com/llms.txt"
+  }
+}

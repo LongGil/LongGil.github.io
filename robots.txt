@@ -1,28 +1,73 @@
-# Cho phép tất cả các trình thu thập thông thường (Google, Bing)
+# Allow all standard crawlers (Google, Bing)
 User-agent: *
 Allow: /
 
-# Chấp thuận rõ ràng các bọ AI Tìm kiếm mang lại giá trị trích dẫn
+# Explicitly allow AI search and agent bots
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Từ chối các bọ thu thập thư rác độc hại và trình cào dữ liệu kém chất lượng
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Deny malicious spam bots and low-quality scrapers
 User-agent: 360Spider
 Disallow: /
 
 User-agent: A6-Indexer
 Disallow: /
 
-# Từ chối các bọ phân tích SEO và trình cào dữ liệu tiêu tốn băng thông lớn
+# Deny SEO analysis bots and bandwidth-heavy scrapers
 User-agent: AhrefsBot
 Disallow: /
 
@@ -35,11 +80,16 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: Rogerbot
+User-agent: BLEXBot
 Disallow: /
 
 User-agent: PetalBot
 Disallow: /
 
-# Liên kết dẫn đường đến bản đồ toàn diện của hệ thống tĩnh
+# Machine-readable content for AI agents
+# LLMs.txt: https://longgilstudio.com/llms.txt
+# Markdown Homepage: https://longgilstudio.com/index.md
+# OpenAPI (JSON): https://longgilstudio.com/openapi.json
+# OpenAPI (YAML): https://longgilstudio.com/api/openapi.yaml
+
 Sitemap: https://longgilstudio.com/sitemap.xml

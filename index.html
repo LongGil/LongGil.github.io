@@ -9,12 +9,18 @@
         content="Long Gil Studio is an independent game development studio from Vietnam founded with the ambition to blend AAA quality with indie creativity — pioneering the 'AAA Indie Game' (Triple-I) movement. Currently developing GilongWorld, a homegrown AAA title.">
     <meta name="author" content="Huynh Long Gil">
     <meta name="keywords"
-        content="Long Gil Studio, GilongWorld, AAA Indie Game, AAA game, game AAA, Triple-I game, studio game việt nam, game việt nam hay, game indie vietnam, Huynh Long Gil, Gil Huynh Long, game cute, trò chơi quả bóng, trò chơi nhập vai, tải game, tải trò chơi, indie game developer, game studio Vietnam, Unity game developer, AAA quality indie">
+        content="Long Gil Studio, GilongWorld, AAA Indie Game, AAA game, game AAA, Triple-I game, AAA game VietNam, game AAA việt nam, studio game việt nam, game việt nam hay, game indie vietnam, Huynh Long Gil, Gil Huynh Long, game cute, trò chơi quả bóng, trò chơi nhập vai, tải game, tải trò chơi, indie game developer, game studio Vietnam, Unity game developer, AAA quality indie">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://longgilstudio.com/">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="alternate" type="text/markdown" href="llms.txt">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/index.md" title="Homepage Markdown">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/llms.txt" title="LLMs.txt">
+    <link rel="service-desc" type="application/openapi+json" href="https://longgilstudio.com/openapi.json">
+    <link rel="service-desc" type="application/yaml" href="https://longgilstudio.com/api/openapi.yaml">
+
+    <link rel="api" type="application/json" href="https://longgilstudio.com/openapi.json">
+    <link rel="ai-plugin" type="application/json" href="https://longgilstudio.com/.well-known/ai-plugin.json">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -79,7 +85,7 @@
             "name": "GilongWorld",
             "url": "https://gilongworld.com"
         },
-        "knowsAbout": ["Game Development", "AAA Indie Games", "Unity", "GilongWorld", "AAA game", "game AAA", "game indie vietnam", "studio game việt nam", "tải game", "game cute", "trò chơi quả bóng", "trò chơi nhập vai", "tải trò chơi"]
+        "knowsAbout": ["Game Development", "AAA Indie Games", "Unity", "GilongWorld", "AAA game", "game AAA", "game AAA việt nam", "AAA game VietNam", "game indie vietnam", "studio game việt nam", "tải game", "game cute", "trò chơi quả bóng", "trò chơi nhập vai", "tải trò chơi"]
     }
     </script>
 
@@ -102,10 +108,23 @@
           "@type": "Answer",
           "text": "GilongWorld là tựa game Hành động Nhập vai (Action RPG) bối cảnh Sci-Fi ấn tượng. Người chơi sẽ làm chủ nghệ thuật luyện dược, giả kim, thuần hóa sinh vật kỳ bí và xây dựng căn cứ vững chắc để sinh tồn trong một thế giới đầy rẫy hiểm nguy."
         }
+      }, {
+        "@type": "Question",
+        "name": "Chữ 'AAA' trong AAA Indie Game có nghĩa là gì? / What does 'AAA' stand for in AAA Indie Game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Theo một cách giải thích vui vẻ thì AAA là: Alone (Làm game một mình), A Lot of bugs (Rất nhiều bug), All-in."
+        }
       }]
     }
     </script>
 
+    <noscript>
+        <style>
+            .Loader-Page, .spinner-wrapper { display: none !important; }
+            .accordion-collapse.collapse { display: block !important; }
+        </style>
+    </noscript>
     <link rel="icon" type="image/png" href="assets/img/nature/favicon_50x50-removebg-preview.png">
     <link rel="apple-touch-icon" href="assets/img/nature/favicon_50x50-removebg-preview.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.purged.css">
@@ -174,6 +193,7 @@
         </div>
     </nav>
     <main class="page lanidng-page">
+        <h1 class="visually-hidden" data-vi="Long Gil Studio — Nhà phát triển Game AAA Indie tại Việt Nam" data-en="Long Gil Studio — AAA Indie Game Developer from Vietnam">Long Gil Studio — AAA Indie Game Developer from Vietnam</h1>
         <section class="portfolio-block block-intro" style="margin-top: 0px;padding-top: 0px;">
             <div class="container"
                 style="background: url(&quot;assets/img/Background_avatar2_1320x320.svg&quot;) bottom / cover, #050a30;box-shadow: 0px 0px 10px 7px #050a30;">
@@ -198,6 +218,10 @@
             <div class="container py-4 py-xl-5">
                 <div class="row row-cols-1 row-cols-md-2">
                     <div class="col">
+                        <div class="visually-hidden">
+                            <h2>GilongWorld — Sci-Fi Action RPG</h2>
+                            <p>GilongWorld is an upcoming homegrown Sci-Fi Action RPG developed in Vietnam by Long Gil Studio. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world on Windows PC (Steam).</p>
+                        </div>
                         <a href="https://gilongworld.com" target="_blank" title="Go to GilongWorld.com">
                             <picture>
                                 <source media="(max-width: 767px)" srcset="assets/img/nature/Vertical_Capsule_748x896.webp">
@@ -217,8 +241,8 @@
                             </div>
                             <div class="photo-details"
                                 style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-warning);text-shadow: 0px 0px 10px var(--bs-primary);"
-                                    data-vi="Fruit Dodgeball" data-en="Fruit Dodgeball">Fruit Dodgeball</h1>
+                                <h2 style="font-family: Alatsi, sans-serif;color: var(--bs-warning);text-shadow: 0px 0px 10px var(--bs-primary);"
+                                    data-vi="Fruit Dodgeball" data-en="Fruit Dodgeball">Fruit Dodgeball</h2>
                                 <p class="project-description"
                                     style="font-size: 18px;height: 180px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);"
                                     data-vi="Fruit Dodgeball là trò chơi điện tử trong đó người chơi sẽ điều khiển quả bóng bay, va chạm, và tránh chướng ngại vật để ghi điểm."
@@ -238,9 +262,9 @@
                                 style="background-image: url(&quot;assets/img/logo_KHHT.png&quot;);"></div>
                             <div class="photo-details"
                                 style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);"
+                                <h2 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);"
                                     data-vi="TKB - Đăng ký HP" data-en="Schedule - Course Registration">TKB - Đăng ký HP
-                                </h1>
+                                </h2>
                                 <p class="project-description"
                                     style="font-size: 18px;height: 180px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);"
                                     data-vi="Là ứng dụng nhằm hỗ trợ sinh viên trong việc lập thời khóa biểu để đăng ký học phần."
@@ -260,9 +284,9 @@
                                 style="background-image: url(&quot;assets/img/logo_cute_hide.png&quot;);"></div>
                             <div class="photo-details"
                                 style="background: url(&quot;assets/img/Element%20(306%20×%20350%20px).svg&quot;) center / cover;">
-                                <h1 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);"
+                                <h2 style="font-family: Alatsi, sans-serif;color: var(--bs-yellow);text-shadow: 0px 0px 10px var(--bs-primary);"
                                     data-vi="Cute Hide: Query-chan" data-en="Cute Hide: Query-chan">Cute Hide:
-                                    Query-chan</h1>
+                                    Query-chan</h2>
                                 <p class="project-description"
                                     style="font-size: 18px;height: 180px;margin: 0px;text-shadow: 0px 0px 10px var(--bs-primary);"
                                     data-vi="Trò chơi trốn tìm 'cute' với nhân vật chính Query-chan"
@@ -289,14 +313,14 @@
                 <div class="accordion" id="faqAccordion">
                     <div class="accordion-item"
                         style="background-color: rgba(5, 10, 48, 0.8); border: 1px solid var(--bs-cyan); border-radius: 8px; margin-bottom: 10px;">
-                        <h2 class="accordion-header" id="headingOne">
+                        <h3 class="accordion-header" id="headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
                                 style="background-color: transparent; color: var(--bs-cyan); font-family: Alatsi, sans-serif; font-weight: bold; box-shadow: none;">
                                 <span data-vi="Long Gil Studio là gì?" data-en="What is Long Gil Studio?">Long Gil
                                     Studio là gì?</span>
                             </button>
-                        </h2>
+                        </h3>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body" style="color: var(--bs-gray-300);"
@@ -309,7 +333,7 @@
                     </div>
                     <div class="accordion-item"
                         style="background-color: rgba(5, 10, 48, 0.8); border: 1px solid var(--bs-cyan); border-radius: 8px; margin-bottom: 10px;">
-                        <h2 class="accordion-header" id="headingTwo">
+                        <h3 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
                                 style="background-color: transparent; color: var(--bs-cyan); font-family: Alatsi, sans-serif; font-weight: bold; box-shadow: none;">
@@ -317,7 +341,7 @@
                                     data-en="What kind of game is GilongWorld?">GilongWorld là tựa game như thế
                                     nào?</span>
                             </button>
-                        </h2>
+                        </h3>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body" style="color: var(--bs-gray-300);"
@@ -331,7 +355,7 @@
                     </div>
                     <div class="accordion-item"
                         style="background-color: rgba(5, 10, 48, 0.8); border: 1px solid var(--bs-cyan); border-radius: 8px; margin-bottom: 10px;">
-                        <h2 class="accordion-header" id="headingThree">
+                        <h3 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
                                 style="background-color: transparent; color: var(--bs-cyan); font-family: Alatsi, sans-serif; font-weight: bold; box-shadow: none;">
@@ -339,12 +363,12 @@
                                     data-en="What does &quot;AAA&quot; stand for in AAA Indie Game?">Chữ "AAA" trong AAA
                                     Indie Game có nghĩa là gì?</span>
                             </button>
-                        </h2>
+                        </h3>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body" style="color: var(--bs-gray-300);"
-                                data-vi="Theo một cách giải thích vui vẻ thì AAA là:<br>- <b>A</b>lone (Làm game một mình)<br>- <b>A</b> Lot of bugs (Rất nhiều bug)<br>- <b>A</b>ll-in"
-                                data-en="In a humorous way, AAA stands for:<br>- <b>A</b>lone (Solo developer)<br>- <b>A</b> Lot of bugs<br>- <b>A</b>ll-in">
+                                data-vi="Theo một cách giải thích vui vẻ thì AAA là:&lt;br&gt;- &lt;b&gt;A&lt;/b&gt;lone (Làm game một mình)&lt;br&gt;- &lt;b&gt;A&lt;/b&gt; Lot of bugs (Rất nhiều bug)&lt;br&gt;- &lt;b&gt;A&lt;/b&gt;ll-in"
+                                data-en="In a humorous way, AAA stands for:&lt;br&gt;- &lt;b&gt;A&lt;/b&gt;lone (Solo developer)&lt;br&gt;- &lt;b&gt;A&lt;/b&gt; Lot of bugs&lt;br&gt;- &lt;b&gt;A&lt;/b&gt;ll-in">
                                 Theo một cách giải thích vui vẻ thì AAA là:<br>- <b>A</b>lone (Làm game một mình)<br>-
                                 <b>A</b> Lot of bugs (Rất nhiều bug)<br>- <b>A</b>ll-in
                             </div>

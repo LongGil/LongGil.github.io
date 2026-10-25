@@ -1,0 +1,26 @@
+{
+  "type": "https://longgilstudio.com/openapi.json#components/schemas/ErrorResponse",
+  "title": "Resource Not Found",
+  "status": 404,
+  "code": "RESOURCE_NOT_FOUND",
+  "message": "The requested URL or API endpoint does not exist on longgilstudio.com.",
+  "resolution": "Check valid endpoints in https://longgilstudio.com/openapi.json, https://longgilstudio.com/api/openapi.yaml, or https://longgilstudio.com/llms.txt.",
+  "error": {
+    "code": "RESOURCE_NOT_FOUND",
+    "status": 404,
+    "message": "The requested URL or API endpoint does not exist on longgilstudio.com.",
+    "resolution": "Check valid endpoints in https://longgilstudio.com/openapi.json or https://longgilstudio.com/llms.txt.",
+    "available_endpoints": [
+      "https://longgilstudio.com/",
+      "https://longgilstudio.com/index.md",
+      "https://longgilstudio.com/llms.txt",
+      "https://longgilstudio.com/openapi.json",
+      "https://longgilstudio.com/api/openapi.yaml",
+      "https://longgilstudio.com/cv.html",
+      "https://longgilstudio.com/hire-me.html",
+      "https://longgilstudio.com/links.html",
+      "https://longgilstudio.com/sitemap.xml"
+    ]
+  }
+}
+

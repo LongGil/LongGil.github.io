@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Long Gil Studio",
+  "name_for_model": "long_gil_studio",
+  "description_for_human": "Long Gil Studio — AAA Indie Game Developer from Vietnam. Explore our games, projects, and contact info.",
+  "description_for_model": "Long Gil Studio is a Vietnamese independent game development studio founded by Huynh Long Gil in 2023. The studio pioneers the AAA Indie Game (Triple-I) movement. Main project: GilongWorld (Sci-Fi Action RPG). Also develops mobile games: Fruit Dodgeball, CTU-KHHT, Cute Hide: Query-chan, Quiz 3000 English Words. Contact: info@longgilstudio.com. HQ: Ca Mau, Vietnam.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://longgilstudio.com/openapi.json"
+  },
+  "logo_url": "https://longgilstudio.com/assets/img/nature/logo_GL_nb2.png",
+  "contact_email": "info@longgilstudio.com",
+  "legal_info_url": "https://longgilstudio.com/"
+}

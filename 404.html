@@ -28,6 +28,27 @@
         }
     </script>
     
+    <script type="application/problem+json" id="agent-error-response">
+    {
+      "type": "https://longgilstudio.com/openapi.json#components/schemas/ErrorResponse",
+      "title": "Resource Not Found",
+      "status": 404,
+      "code": "RESOURCE_NOT_FOUND",
+      "message": "The requested URL or endpoint does not exist on longgilstudio.com.",
+      "resolution": "Verify the URL path against the OpenAPI specification at https://longgilstudio.com/openapi.json, the sitemap at https://longgilstudio.com/sitemap.xml, or the machine-readable overview at https://longgilstudio.com/llms.txt.",
+      "error": {
+        "code": "RESOURCE_NOT_FOUND",
+        "status": 404,
+        "message": "The requested URL or endpoint does not exist on longgilstudio.com.",
+        "resolution": "Verify the URL path against https://longgilstudio.com/openapi.json or https://longgilstudio.com/llms.txt."
+      }
+    }
+    </script>
+    <noscript>
+        <style>
+            .Loader-Page, .spinner-wrapper { display: none !important; }
+        </style>
+    </noscript>
     <link rel="icon" type="image/png" href="assets/img/nature/favicon_50x50-removebg-preview.png">
     <link rel="apple-touch-icon" href="assets/img/nature/favicon_50x50-removebg-preview.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.purged.css">

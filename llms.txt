@@ -6,7 +6,7 @@
 
 ### GilongWorld (Sci-Fi Action RPG)
 - **URL**: [GilongWorld on Steam](https://store.steampowered.com/app/4615990/GilongWorld/) / [Official Website](https://gilongworld.com)
-- **Description**: An upcoming homegrown Sci-Fi Action RPG. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world. It is considered one of the pioneering AAA Indie games (Triple-I) developed entirely in Vietnam.
+- **Description**: An upcoming homegrown Sci-Fi Action RPG. Players master the art of alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world. It is considered one of the pioneering AAA Indie games (Triple-I) and a highly anticipated AAA game from VietNam (game AAA Việt Nam), developed entirely in Vietnam.
 - **Platforms**: Windows PC.
 
 ### Mobile Applications & Games
@@ -23,6 +23,17 @@
 - **Background**: Computer Science graduate from Can Tho University (Class of 2021 - 2025). Unity Developer since May 2022.
 - **Skills**: C#, Unity Engine, Software Architecture, Design Patterns, Game Design.
 - **Profile**: Detailed info is on the [About Me Page](https://longgilstudio.com/cv.html).
+
+---
+
+## Machine-Readable Agent Endpoints
+
+- **Homepage (Markdown)**: [https://longgilstudio.com/index.md](https://longgilstudio.com/index.md)
+- **OpenAPI 3.1 Spec (JSON)**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
+- **OpenAPI 3.1 Spec (YAML)**: [https://longgilstudio.com/api/openapi.yaml](https://longgilstudio.com/api/openapi.yaml)
+- **AI Plugin Manifest**: [https://longgilstudio.com/.well-known/ai-plugin.json](https://longgilstudio.com/.well-known/ai-plugin.json)
+- **Structured JSON Error Schema**: [https://longgilstudio.com/api/404.json](https://longgilstudio.com/api/404.json)
+- **XML Sitemap**: [https://longgilstudio.com/sitemap.xml](https://longgilstudio.com/sitemap.xml)
 
 ---
 

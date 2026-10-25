@@ -265,7 +265,8 @@
         hyphens: auto;
     }
     
-    .photo-details h1 {
+    .photo-details h1,
+    .photo-details h2 {
         font-size: 1.5rem !important;
         margin-bottom: 0.5rem !important;
     }
@@ -289,7 +290,8 @@
         hyphens: auto;
     }
     
-    .photo-details h1 {
+    .photo-details h1,
+    .photo-details h2 {
         font-size: 1.4rem !important;
         margin-bottom: 0.5rem !important;
     }
