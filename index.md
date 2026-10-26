@@ -49,6 +49,14 @@ In a humorous way, AAA stands for: **A**lone (Solo developer), **A** Lot of bugs
 - **Skills**: C#, Unity Engine, Software Architecture, Design Patterns, Game Design.
 - **Profile**: [About Me](https://longgilstudio.com/cv.html)
 
+## REST API (v1) & Machine-Readable Resources
+
+- **Studio Metadata (JSON v1)**: [https://longgilstudio.com/v1/studio.json](https://longgilstudio.com/v1/studio.json)
+- **Projects Catalog (JSON v1)**: [https://longgilstudio.com/v1/projects.json](https://longgilstudio.com/v1/projects.json)
+- **OpenAPI 3.1 Specification**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
+- **LLMs.txt**: [https://longgilstudio.com/llms.txt](https://longgilstudio.com/llms.txt)
+- **XML Sitemap**: [https://longgilstudio.com/sitemap.xml](https://longgilstudio.com/sitemap.xml)
+
 ## Contact
 
 - **Email**: info@longgilstudio.com

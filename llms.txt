@@ -26,14 +26,21 @@
 
 ---
 
-## Machine-Readable Agent Endpoints
+## Machine-Readable Agent & REST API (v1) Endpoints
 
+- **Studio Metadata (REST API v1)**: [https://longgilstudio.com/v1/studio.json](https://longgilstudio.com/v1/studio.json)
+- **Projects Catalog (REST API v1)**: [https://longgilstudio.com/v1/projects.json](https://longgilstudio.com/v1/projects.json)
 - **Homepage (Markdown)**: [https://longgilstudio.com/index.md](https://longgilstudio.com/index.md)
+- **404 Error Reference (Markdown)**: [https://longgilstudio.com/404.md](https://longgilstudio.com/404.md)
 - **OpenAPI 3.1 Spec (JSON)**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
 - **OpenAPI 3.1 Spec (YAML)**: [https://longgilstudio.com/api/openapi.yaml](https://longgilstudio.com/api/openapi.yaml)
 - **AI Plugin Manifest**: [https://longgilstudio.com/.well-known/ai-plugin.json](https://longgilstudio.com/.well-known/ai-plugin.json)
 - **Structured JSON Error Schema**: [https://longgilstudio.com/api/404.json](https://longgilstudio.com/api/404.json)
 - **XML Sitemap**: [https://longgilstudio.com/sitemap.xml](https://longgilstudio.com/sitemap.xml)
+
+### Versioning & Deprecation Policy
+- **Versioning Strategy**: URL path versioning (`/v1/`, `/api/v1/`) and `X-API-Version` header (`v1` or `2026-10-26`). Breaking changes will be released under `/v2/`.
+- **Deprecation Signaling**: Deprecated endpoints emit standard `Deprecation` (RFC 9745) and `Sunset` (RFC 8594) HTTP headers with a minimum **90-day sunset window**.
 
 ---
 

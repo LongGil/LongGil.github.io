@@ -1,0 +1,40 @@
+/
+  Vary: Accept
+  X-API-Version: v1
+  Link: <https://longgilstudio.com/index.md>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/llms.txt>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/openapi.json>; rel="service-desc"; type="application/openapi+json"
+
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  X-API-Version: v1
+
+/404.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  X-API-Version: v1
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  X-API-Version: v1
+
+/openapi.json
+  Content-Type: application/json; charset=utf-8
+  X-API-Version: v1
+  Deprecation: false
+
+/api/openapi.yaml
+  Content-Type: application/yaml; charset=utf-8
+  X-API-Version: v1
+  Deprecation: false
+
+/v1/*
+  Content-Type: application/json; charset=utf-8
+  X-API-Version: v1
+  Deprecation: false
+
+/api/v1/*
+  Content-Type: application/json; charset=utf-8
+  X-API-Version: v1
+  Deprecation: false
+

@@ -1,0 +1,35 @@
+{
+  "api_version": "v1",
+  "schema_version": "2026-10-26",
+  "deprecation": {
+    "deprecated": false,
+    "sunset": null,
+    "policy": "All breaking changes are introduced under a new major URL prefix (e.g., /v2/). Deprecated endpoints emit RFC 9745 Deprecation and RFC 8594 Sunset HTTP headers at least 90 days prior to retirement.",
+    "policy_url": "https://longgilstudio.com/openapi.json"
+  },
+  "studio": {
+    "name": "Long Gil Studio",
+    "tagline": "AAA Indie Game Developer from Vietnam",
+    "founded": "2023",
+    "headquarters": "Ca Mau, Vietnam",
+    "email": "info@longgilstudio.com",
+    "url": "https://longgilstudio.com/",
+    "founder": {
+      "name": "Huynh Long Gil",
+      "alternate_name": "Gil Huynh Long",
+      "role": "Founder & Lead Game Developer",
+      "education": "Can Tho University — B.S. in Computer Science (2021–2025)",
+      "profile_url": "https://longgilstudio.com/cv.html"
+    }
+  },
+  "endpoints": {
+    "self": "https://longgilstudio.com/api/v1/studio.json",
+    "projects": "https://longgilstudio.com/api/v1/projects.json",
+    "openapi_json": "https://longgilstudio.com/openapi.json",
+    "openapi_yaml": "https://longgilstudio.com/api/openapi.yaml",
+    "llms_txt": "https://longgilstudio.com/llms.txt",
+    "homepage_markdown": "https://longgilstudio.com/index.md",
+    "sitemap_xml": "https://longgilstudio.com/sitemap.xml"
+  }
+}
+

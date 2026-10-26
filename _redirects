@@ -1,0 +1,11 @@
+/gilongworld-showcase.html https://gilongworld.com/ 301
+/gilongworld-showcase https://gilongworld.com/ 301
+/gilongworld https://gilongworld.com/ 301
+/about https://longgilstudio.com/cv.html 301
+/contact https://longgilstudio.com/hire-me.html 301
+/links https://longgilstudio.com/links.html 301
+/v1/studio /v1/studio.json 200
+/v1/projects /v1/projects.json 200
+/api/v1/studio /api/v1/studio.json 200
+/api/v1/projects /api/v1/projects.json 200
+

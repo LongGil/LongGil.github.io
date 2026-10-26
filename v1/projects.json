@@ -1,0 +1,70 @@
+{
+  "api_version": "v1",
+  "schema_version": "2026-10-26",
+  "projects": [
+    {
+      "id": "gilongworld",
+      "name": "GilongWorld",
+      "category": "PC Game",
+      "genre": "Sci-Fi Action RPG",
+      "platforms": ["Windows PC"],
+      "status": "In Development",
+      "description": "An upcoming homegrown Sci-Fi Action RPG. Players master alchemy and potion crafting, tame mysterious creatures, build sci-fi bases, and survive in a dangerous, immersive world.",
+      "urls": {
+        "official": "https://gilongworld.com/",
+        "steam": "https://store.steampowered.com/app/4615990/GilongWorld/"
+      }
+    },
+    {
+      "id": "fruit-dodgeball",
+      "name": "Fruit Dodgeball",
+      "category": "Mobile Game",
+      "genre": "Arcade",
+      "platforms": ["Android", "iOS"],
+      "status": "Released",
+      "description": "An arcade video game where players control a flying ball, collide, and avoid obstacles to score points.",
+      "urls": {
+        "google_play": "https://play.google.com/store/apps/details?id=com.tenHoGil.FruitDodgeball",
+        "app_store": "https://apps.apple.com/do/app/fruit-dodgeball/id6748839575"
+      }
+    },
+    {
+      "id": "ctu-khht",
+      "name": "CTU — Course Registration & Scheduling (TKB - KHHT)",
+      "category": "Mobile Application",
+      "genre": "Education / Productivity",
+      "platforms": ["Android", "iOS"],
+      "status": "Released",
+      "description": "A course registration, scheduling, and study planning helper app for Can Tho University students.",
+      "urls": {
+        "google_play": "https://play.google.com/store/apps/details?id=com.Gilong.KHHT",
+        "app_store": "https://apps.apple.com/do/app/ctu-%C4%91%C4%83ng-k%C3%BD-hp-khht/id6748887877"
+      }
+    },
+    {
+      "id": "cute-hide-query-chan",
+      "name": "Cute Hide: Query-chan",
+      "category": "Mobile Game",
+      "genre": "Casual / Hide-and-Seek",
+      "platforms": ["Android"],
+      "status": "Released",
+      "description": "A cute hide-and-seek mobile game featuring the anime character Query-chan.",
+      "urls": {
+        "google_play": "https://play.google.com/store/apps/details?id=com.Gilong.CuteHide"
+      }
+    },
+    {
+      "id": "quiz-3000-english-words",
+      "name": "Quiz 3000 English Words",
+      "category": "Mobile Application",
+      "genre": "Education",
+      "platforms": ["Android"],
+      "status": "Released",
+      "description": "An educational app helping learners memorize the Oxford 3000 core English vocabulary through quizzes.",
+      "urls": {
+        "google_play": "https://play.google.com/store/apps/details?id=com.Gilong.E3000VocabQuiz"
+      }
+    }
+  ]
+}
+
