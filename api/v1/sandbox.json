@@ -1,0 +1,32 @@
+{
+  "api_version": "v1",
+  "environment": "sandbox",
+  "status": "ok",
+  "authenticated_with": "lgs_sandbox_demo_key_v1",
+  "rate_limit": {
+    "limit": 60,
+    "remaining": 59,
+    "reset_seconds": 60,
+    "policy": "60;w=60",
+    "retry_after_on_429": 60
+  },
+  "cli": {
+    "name": "@longgilstudio/cli",
+    "binary": "lgs",
+    "npm": "npx @longgilstudio/cli",
+    "pypi": "pip install longgilstudio",
+    "homebrew": "brew install longgilstudio/tap/lgs",
+    "script_url": "https://longgilstudio.com/cli/lgs.mjs"
+  },
+  "endpoints": {
+    "developer_portal": "https://longgilstudio.com/developers",
+    "api_docs": "https://longgilstudio.com/docs",
+    "studio": "https://longgilstudio.com/api/v1/studio.json",
+    "projects": "https://longgilstudio.com/api/v1/projects.json",
+    "openapi_json": "https://longgilstudio.com/openapi.json",
+    "openapi_yaml": "https://longgilstudio.com/api/openapi.yaml",
+    "llms_txt": "https://longgilstudio.com/llms.txt",
+    "agents_md": "https://longgilstudio.com/AGENTS.md"
+  }
+}
+

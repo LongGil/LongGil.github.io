@@ -1,0 +1,25 @@
+{
+  "name": "@longgilstudio/cli",
+  "version": "1.0.0",
+  "description": "Official CLI tool for Long Gil Studio REST API v1 — query studio metadata, games catalog (GilongWorld, Fruit Dodgeball, CTU-KHHT, Cute Hide, Quiz 3000), and OpenAPI specs.",
+  "type": "module",
+  "bin": {
+    "lgs": "./lgs.mjs",
+    "longgilstudio": "./lgs.mjs"
+  },
+  "homepage": "https://longgilstudio.com/developers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LongGilStudio/LongGil.github.io.git"
+  },
+  "keywords": [
+    "longgilstudio",
+    "gilongworld",
+    "cli",
+    "agent-ready",
+    "indie-game"
+  ],
+  "author": "Huynh Long Gil <info@longgilstudio.com>",
+  "license": "MIT"
+}
+

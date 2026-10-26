@@ -1,28 +1,64 @@
 openapi: 3.1.0
 info:
   title: Long Gil Studio REST API & Content Specification (v1)
-  summary: Versioned REST API (/v1/) and machine-readable content endpoints for Long Gil Studio (longgilstudio.com).
+  summary: Versioned REST API (/v1/), Developer Portal (/developers), CLI (@longgilstudio/cli), and machine-readable content endpoints for Long Gil Studio (longgilstudio.com).
   description: |
     Long Gil Studio is an independent game development studio from Vietnam, pioneering the AAA Indie Game (Triple-I) movement.
 
-    ## API Versioning Policy
-    - **URL Path Versioning**: All REST API endpoints are versioned using explicit URL path prefixes (`/v1/...` and `/api/v1/...`). Future breaking changes will be published under `/v2/` and `/api/v2/`.
-    - **Header Versioning**: Clients and AI agents may also negotiate or pin schema versions via the `X-API-Version` request header (e.g., `X-API-Version: v1` or `X-API-Version: 2026-10-26`). Every response echoes `X-API-Version`.
+    ## When to Use This API (Agent Guidance)
+    - **Game & Application Catalog**: Query `/v1/projects.json` for canonical metadata and store links for **GilongWorld** (Steam PC), **Fruit Dodgeball**, **CTU - TKB - KHHT**, **Cute Hide: Query-chan**, and **Quiz 3000 English Words**.
+    - **Studio & Founder Identity**: Query `/v1/studio.json` or `/llms.txt` for verified studio details and founder **Huynh Long Gil**.
+    - **Sandbox Testing**: Query `/v1/sandbox.json` with `X-API-Key: lgs_sandbox_demo_key_v1`.
 
-    ## Deprecation & Sunset Policy
-    - **Deprecation Header (RFC 9745)**: When an endpoint or API version is scheduled for retirement, responses include the standard `Deprecation: @<unix-timestamp>` header.
-    - **Sunset Header (RFC 8594)**: Deprecated endpoints include a `Sunset: <HTTP-date>` header and a `Link: <https://longgilstudio.com/openapi.json>; rel="sunset"` header indicating the exact retirement date.
-    - **Notice Timeline**: Deprecated versions remain operational for a minimum of **90 days** after deprecation notice before sunset.
-  version: 1.2.0
+    ## Official CLI Tool (`@longgilstudio/cli`)
+    - **npm / npx**: `npx @longgilstudio/cli projects --format json` | `npm install -g @longgilstudio/cli`
+    - **PyPI**: `pip install longgilstudio`
+    - **Homebrew**: `brew install longgilstudio/tap/lgs`
+
+    ## Rate Limits & Self-Throttling
+    All endpoints emit standard IETF `RateLimit` headers (`RateLimit-Limit: 60`, `RateLimit-Remaining`, `RateLimit-Reset`, `RateLimit-Policy: 60;w=60`) and `X-RateLimit-*` headers. Exceeding 60 requests per 60-second window returns HTTP `429 Too Many Requests` with a `Retry-After: 60` header.
+
+    ## API Versioning & Deprecation Policy
+    - **URL Path & Header Versioning**: Endpoints are versioned under `/v1/` and `/api/v1/` and accept the `X-API-Version` header (`v1` or `2026-10-26`).
+    - **Deprecation & Sunset**: Deprecated endpoints emit `Deprecation` (RFC 9745) and `Sunset` (RFC 8594) headers at least **90 days** prior to removal.
+  version: 1.3.0
   contact:
-    name: Long Gil Studio
-    url: https://longgilstudio.com
+    name: Long Gil Studio Developer Support
+    url: https://longgilstudio.com/developers
     email: info@longgilstudio.com
   license:
     name: All Rights Reserved
     url: https://longgilstudio.com/
   x-logo:
     url: https://longgilstudio.com/assets/img/nature/logo_GL_nb2.png
+  x-developer-portal: https://longgilstudio.com/developers
+  x-documentation: https://longgilstudio.com/docs
+  x-sandbox:
+    url: https://longgilstudio.com/v1/sandbox.json
+    demo_api_key: lgs_sandbox_demo_key_v1
+    header: X-API-Key
+  x-cli:
+    name: '@longgilstudio/cli'
+    binary: lgs
+    npm: npm install -g @longgilstudio/cli
+    npx: npx @longgilstudio/cli
+    pypi: pip install longgilstudio
+    homebrew: brew install longgilstudio/tap/lgs
+    script_url: https://longgilstudio.com/cli/lgs.mjs
+  x-rate-limit:
+    limit: 60
+    window_seconds: 60
+    policy: 60;w=60
+    headers:
+      - RateLimit-Limit
+      - RateLimit-Remaining
+      - RateLimit-Reset
+      - RateLimit-Policy
+      - RateLimit
+      - X-RateLimit-Limit
+      - X-RateLimit-Remaining
+      - X-RateLimit-Reset
+      - Retry-After
   x-api-versioning:
     strategy:
       - url-path
@@ -38,14 +74,14 @@ info:
       - Deprecation
       - Sunset
       - Link
-    policy_url: https://longgilstudio.com/openapi.json
+    policy_url: https://longgilstudio.com/developers
 servers:
   - url: https://longgilstudio.com
     description: Production Root Server
   - url: https://longgilstudio.com/v1
     description: Production REST API v1
   - url: https://longgilstudio.com/api/v1
-    description: Production REST API v1 (Alias)
+    description: Sandbox & REST API v1 Alias
 paths:
   /v1/studio.json:
     get:
@@ -64,6 +100,14 @@ paths:
               $ref: '#/components/headers/Deprecation'
             Sunset:
               $ref: '#/components/headers/Sunset'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
+            RateLimit-Policy:
+              $ref: '#/components/headers/RateLimitPolicy'
           content:
             application/json:
               schema:
@@ -72,6 +116,8 @@ paths:
           $ref: '#/components/responses/BadRequestError'
         '404':
           $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
         '500':
           $ref: '#/components/responses/InternalServerError'
         default:
@@ -93,6 +139,14 @@ paths:
               $ref: '#/components/headers/Deprecation'
             Sunset:
               $ref: '#/components/headers/Sunset'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
+            RateLimit-Policy:
+              $ref: '#/components/headers/RateLimitPolicy'
           content:
             application/json:
               schema:
@@ -101,68 +155,94 @@ paths:
           $ref: '#/components/responses/BadRequestError'
         '404':
           $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
         '500':
           $ref: '#/components/responses/InternalServerError'
         default:
           $ref: '#/components/responses/DefaultError'
-  /api/v1/studio.json:
+  /v1/sandbox.json:
     get:
-      operationId: getApiStudioV1
-      summary: Get Long Gil Studio metadata (/api/v1 alias)
-      description: Alias for /v1/studio.json returning structured studio metadata and versioning policy.
+      operationId: getSandboxV1
+      summary: Sandbox Environment & Rate Limit Status (v1)
+      description: Returns sandbox environment health, test API key verification, rate-limit configuration, and CLI metadata.
       parameters:
         - $ref: '#/components/parameters/ApiVersionHeader'
+        - $ref: '#/components/parameters/SandboxApiKeyHeader'
       responses:
         '200':
-          description: Studio metadata JSON (v1)
+          description: Sandbox status JSON (v1)
           headers:
             X-API-Version:
               $ref: '#/components/headers/XApiVersion'
-            Deprecation:
-              $ref: '#/components/headers/Deprecation'
-            Sunset:
-              $ref: '#/components/headers/Sunset'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
+            RateLimit-Policy:
+              $ref: '#/components/headers/RateLimitPolicy'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StudioResponseV1'
+                type: object
         '400':
           $ref: '#/components/responses/BadRequestError'
         '404':
           $ref: '#/components/responses/NotFoundError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
         default:
           $ref: '#/components/responses/DefaultError'
-  /api/v1/projects.json:
+  /developers:
     get:
-      operationId: getApiProjectsV1
-      summary: List Long Gil Studio games and applications (/api/v1 alias)
-      description: Alias for /v1/projects.json returning the structured catalog of studio projects.
-      parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
+      operationId: getDeveloperPortal
+      summary: Developer Portal, API Keys, Quickstart & Sandbox
+      description: Interactive Developer Portal with API keys, quickstart examples, live sandbox environment, and CLI documentation.
       responses:
         '200':
-          description: Projects catalog JSON (v1)
-          headers:
-            X-API-Version:
-              $ref: '#/components/headers/XApiVersion'
-            Deprecation:
-              $ref: '#/components/headers/Deprecation'
-            Sunset:
-              $ref: '#/components/headers/Sunset'
+          description: Developer Portal (HTML or Markdown)
           content:
-            application/json:
+            text/html:
               schema:
-                $ref: '#/components/schemas/ProjectsResponseV1'
-        '400':
-          $ref: '#/components/responses/BadRequestError'
+                type: string
+            text/markdown:
+              schema:
+                type: string
         '404':
           $ref: '#/components/responses/NotFoundError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-        default:
-          $ref: '#/components/responses/DefaultError'
+  /docs:
+    get:
+      operationId: getApiDocs
+      summary: Public API Documentation
+      description: Public REST API v1 documentation covering authentication, endpoints, rate limits, and example requests.
+      responses:
+        '200':
+          description: API Documentation (HTML or Markdown)
+          content:
+            text/html:
+              schema:
+                type: string
+            text/markdown:
+              schema:
+                type: string
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+  /AGENTS.md:
+    get:
+      operationId: getAgentInstructions
+      summary: Agent Instructions & When-to-Use Guidance
+      description: Dedicated agent instructions detailing when to use Long Gil Studio, best-fit use cases, and how to call the REST API v1 or CLI.
+      responses:
+        '200':
+          description: Markdown agent instructions
+          content:
+            text/markdown:
+              schema:
+                type: string
+        '404':
+          $ref: '#/components/responses/NotFoundError'
   /:
     get:
       operationId: getHomepage
@@ -172,7 +252,6 @@ paths:
         - name: Accept
           in: header
           required: false
-          description: Content negotiation header. Use 'text/markdown' to request Markdown or 'text/html' for HTML.
           schema:
             type: string
             default: text/html
@@ -186,12 +265,17 @@ paths:
           description: Homepage content in HTML or Markdown format
           headers:
             Vary:
-              description: Indicates response varies based on the Accept request header
               schema:
                 type: string
                 example: Accept
             X-API-Version:
               $ref: '#/components/headers/XApiVersion'
+            RateLimit-Limit:
+              $ref: '#/components/headers/RateLimitLimit'
+            RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+            RateLimit-Reset:
+              $ref: '#/components/headers/RateLimitReset'
           content:
             text/html:
               schema:
@@ -199,39 +283,16 @@ paths:
             text/markdown:
               schema:
                 type: string
-        '400':
-          $ref: '#/components/responses/BadRequestError'
         '404':
           $ref: '#/components/responses/NotFoundError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /index.md:
-    get:
-      operationId: getHomepageMarkdown
-      summary: Homepage content in Markdown
-      description: Full homepage content rendered as clean Markdown for AI agents.
-      parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
-      responses:
-        '200':
-          description: Markdown homepage content
-          content:
-            text/markdown:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
         default:
           $ref: '#/components/responses/DefaultError'
   /llms.txt:
     get:
       operationId: getLlmsTxt
-      summary: LLMs.txt — Machine-readable studio overview
-      description: Markdown-formatted overview of Long Gil Studio, its projects, founder, and API endpoints.
-      parameters:
-        - $ref: '#/components/parameters/ApiVersionHeader'
+      summary: LLMs.txt — Machine-readable studio overview & When-to-Use guide
       responses:
         '200':
           description: Markdown llms.txt content
@@ -239,126 +300,12 @@ paths:
             text/markdown:
               schema:
                 type: string
-            text/plain:
-              schema:
-                type: string
         '404':
           $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /404.md:
-    get:
-      operationId: getNotFoundMarkdown
-      summary: Agent-friendly 404 Error in Markdown
-      description: Markdown error document explaining 404 Not Found errors and linking to llms.txt, openapi.json, and sitemap.xml.
-      responses:
-        '200':
-          description: Markdown 404 error explanation
-          content:
-            text/markdown:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-  /api/404.json:
-    get:
-      operationId: getJsonNotFoundError
-      summary: Structured JSON 404 Error Schema Endpoint
-      description: Returns the canonical structured JSON error response with error code, message, hint, and resolution instructions.
-      responses:
-        '200':
-          description: Structured JSON error object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-  /cv.html:
-    get:
-      operationId: getAbout
-      summary: About the founder — Huynh Long Gil
-      description: Detailed profile page of the founder including skills, education, and experience.
-      responses:
-        '200':
-          description: HTML about page
-          content:
-            text/html:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /hire-me.html:
-    get:
-      operationId: getContact
-      summary: Contact and hiring page
-      description: Contact form and hiring information for Long Gil Studio.
-      responses:
-        '200':
-          description: HTML contact page
-          content:
-            text/html:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /links.html:
-    get:
-      operationId: getLinks
-      summary: All social media and community links
-      description: Link-in-bio page with all Long Gil Studio social media profiles, communities, and store links.
-      responses:
-        '200':
-          description: HTML links page
-          content:
-            text/html:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /sitemap.xml:
-    get:
-      operationId: getSitemap
-      summary: XML Sitemap
-      description: Standard XML sitemap listing all public pages and machine-readable resources.
-      responses:
-        '200':
-          description: XML sitemap
-          content:
-            application/xml:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /robots.txt:
-    get:
-      operationId: getRobotsTxt
-      summary: Robots.txt
-      description: Standard robots.txt with explicit allow rules for AI agent user-agents.
-      responses:
-        '200':
-          description: Plain text robots directives
-          content:
-            text/plain:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
   /openapi.json:
     get:
       operationId: getOpenApiJson
       summary: OpenAPI 3.1.0 specification (JSON)
-      description: OpenAPI 3.1.0 specification in JSON format describing all public endpoints, versioning policy, and error schemas.
       responses:
         '200':
           description: OpenAPI JSON specification
@@ -368,40 +315,6 @@ paths:
                 type: object
         '404':
           $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /api/openapi.yaml:
-    get:
-      operationId: getOpenApiYaml
-      summary: OpenAPI 3.1.0 specification (YAML)
-      description: OpenAPI 3.1.0 specification in YAML format describing all public endpoints, versioning policy, and error schemas.
-      responses:
-        '200':
-          description: OpenAPI YAML specification
-          content:
-            application/yaml:
-              schema:
-                type: string
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
-  /.well-known/ai-plugin.json:
-    get:
-      operationId: getAiPluginManifest
-      summary: AI Plugin & Agent Discovery Manifest
-      description: Machine-readable manifest linking AI agents to the OpenAPI specification and studio metadata.
-      responses:
-        '200':
-          description: AI plugin manifest JSON
-          content:
-            application/json:
-              schema:
-                type: object
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-        default:
-          $ref: '#/components/responses/DefaultError'
 components:
   parameters:
     ApiVersionHeader:
@@ -415,6 +328,14 @@ components:
         enum:
           - v1
           - '2026-10-26'
+    SandboxApiKeyHeader:
+      name: X-API-Key
+      in: header
+      required: false
+      description: Optional sandbox API key for testing authenticated agent workflows (demo key 'lgs_sandbox_demo_key_v1').
+      schema:
+        type: string
+        default: lgs_sandbox_demo_key_v1
   headers:
     XApiVersion:
       description: Active REST API version serving the response
@@ -432,6 +353,31 @@ components:
         type: string
         format: date-time
         example: Wed, 01 Jan 2031 00:00:00 GMT
+    RateLimitLimit:
+      description: Maximum number of requests permitted in the current 60-second window (RFC RateLimit)
+      schema:
+        type: integer
+        example: 60
+    RateLimitRemaining:
+      description: Remaining number of requests permitted in the current window (RFC RateLimit)
+      schema:
+        type: integer
+        example: 59
+    RateLimitReset:
+      description: Seconds remaining until the current rate-limit window resets (RFC RateLimit)
+      schema:
+        type: integer
+        example: 60
+    RateLimitPolicy:
+      description: Rate limit quota policy (60 requests per 60 seconds)
+      schema:
+        type: string
+        example: 60;w=60
+    RetryAfter:
+      description: Seconds to wait before retrying after a 429 Too Many Requests response (RFC 9110)
+      schema:
+        type: integer
+        example: 60
   schemas:
     StudioResponseV1:
       type: object
@@ -450,19 +396,6 @@ components:
           example: '2026-10-26'
         deprecation:
           type: object
-          properties:
-            deprecated:
-              type: boolean
-              example: false
-            sunset:
-              type:
-                - string
-                - 'null'
-            policy:
-              type: string
-            policy_url:
-              type: string
-              format: uri
         studio:
           type: object
         endpoints:
@@ -497,32 +430,18 @@ components:
         type:
           type: string
           format: uri
-          description: URI reference identifying the problem type
-          example: https://longgilstudio.com/openapi.json#components/schemas/ErrorResponse
         title:
           type: string
-          description: Short human-readable summary of the problem type
-          example: Resource Not Found
         status:
           type: integer
-          description: HTTP status code
-          example: 404
         code:
           type: string
-          description: Machine-readable error code
-          example: RESOURCE_NOT_FOUND
         message:
           type: string
-          description: Human- and agent-readable explanation of the error
-          example: The requested URL or API endpoint does not exist on longgilstudio.com.
         hint:
           type: string
-          description: Concise remediation hint for AI agents
-          example: Consult /openapi.json, /v1/studio.json, or /llms.txt for valid endpoints.
         resolution:
           type: string
-          description: Actionable instructions for agents on how to resolve the error
-          example: Check valid endpoints in https://longgilstudio.com/openapi.json, https://longgilstudio.com/api/openapi.yaml, or https://longgilstudio.com/llms.txt.
         error:
           type: object
           required:
@@ -534,28 +453,17 @@ components:
           properties:
             code:
               type: string
-              example: RESOURCE_NOT_FOUND
             status:
               type: integer
-              example: 404
             message:
               type: string
-              example: The requested URL or API endpoint does not exist on longgilstudio.com.
             hint:
               type: string
-              example: Consult /openapi.json, /v1/studio.json, or /llms.txt for valid endpoints.
             resolution:
               type: string
-              example: Check valid endpoints in https://longgilstudio.com/openapi.json or https://longgilstudio.com/llms.txt.
             documentation_url:
               type: string
               format: uri
-              example: https://longgilstudio.com/openapi.json
-            available_endpoints:
-              type: array
-              items:
-                type: string
-                format: uri
   responses:
     BadRequestError:
       description: Invalid request parameters or unsupported version header (structured JSON error response).
@@ -563,34 +471,47 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     NotFoundError:
-      description: The requested resource was not found (structured JSON error response or Markdown 404 body via content negotiation).
+      description: The requested resource was not found (structured JSON error response or Markdown 404 body).
       headers:
         Vary:
-          description: Indicates error format varies by Accept header
           schema:
             type: string
             example: Accept
+        RateLimit-Limit:
+          $ref: '#/components/headers/RateLimitLimit'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/RateLimitRemaining'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimitReset'
       content:
         application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-        application/problem+json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
         text/markdown:
           schema:
             type: string
-    InternalServerError:
-      description: Unexpected server error (structured JSON error response).
+    TooManyRequestsError:
+      description: Rate limit exceeded (60 requests per 60-second window). Self-throttle according to Retry-After.
+      headers:
+        Retry-After:
+          $ref: '#/components/headers/RetryAfter'
+        RateLimit-Limit:
+          $ref: '#/components/headers/RateLimitLimit'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/RateLimitRemaining'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimitReset'
+        RateLimit-Policy:
+          $ref: '#/components/headers/RateLimitPolicy'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-        application/problem+json:
+    InternalServerError:
+      description: Unexpected server error (structured JSON error response).
+      content:
+        application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
     DefaultError:
@@ -599,9 +520,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
 externalDocs:
-  description: LLMs.txt — Machine-readable studio overview for AI agents
-  url: https://longgilstudio.com/llms.txt
+  description: Long Gil Studio Developer Portal & Agent Instructions
+  url: https://longgilstudio.com/developers

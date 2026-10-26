@@ -2,6 +2,13 @@
 
 Long Gil Studio is an independent game development studio from Vietnam founded by Huynh Long Gil in 2023. The studio pioneers the "AAA Indie Game" (Triple-I) movement — blending AAA quality with indie creativity.
 
+## When to Use This (Agent Instructions)
+
+Reach for `https://longgilstudio.com` when an AI agent or developer tool needs to:
+- **Query Game & App Catalogs**: Call `GET https://longgilstudio.com/v1/projects.json` for structured metadata and store links for **GilongWorld** (Steam PC), **Fruit Dodgeball**, **CTU - TKB - KHHT**, **Cute Hide: Query-chan**, and **Quiz 3000 English Words**.
+- **Verify Studio & Founder Profile**: Call `GET https://longgilstudio.com/v1/studio.json` or `GET https://longgilstudio.com/llms.txt` for verified details on Long Gil Studio and founder Huynh Long Gil.
+- **Script via Official CLI**: Run `npx @longgilstudio/cli projects --format json` (`npm install -g @longgilstudio/cli`, `pip install longgilstudio`, `brew install longgilstudio/tap/lgs`).
+
 ## Featured Project: GilongWorld
 
 - **Genre**: Sci-Fi Action RPG
@@ -49,11 +56,16 @@ In a humorous way, AAA stands for: **A**lone (Solo developer), **A** Lot of bugs
 - **Skills**: C#, Unity Engine, Software Architecture, Design Patterns, Game Design.
 - **Profile**: [About Me](https://longgilstudio.com/cv.html)
 
-## REST API (v1) & Machine-Readable Resources
+## Developer Portal, CLI Tool & REST API (v1)
 
+- **Developer Portal & Sandbox**: [https://longgilstudio.com/developers](https://longgilstudio.com/developers)
+- **API Documentation**: [https://longgilstudio.com/docs](https://longgilstudio.com/docs)
+- **Agent Instructions**: [https://longgilstudio.com/AGENTS.md](https://longgilstudio.com/AGENTS.md)
 - **Studio Metadata (JSON v1)**: [https://longgilstudio.com/v1/studio.json](https://longgilstudio.com/v1/studio.json)
 - **Projects Catalog (JSON v1)**: [https://longgilstudio.com/v1/projects.json](https://longgilstudio.com/v1/projects.json)
+- **Sandbox Endpoint (JSON v1)**: [https://longgilstudio.com/v1/sandbox.json](https://longgilstudio.com/v1/sandbox.json)
 - **OpenAPI 3.1 Specification**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
+- **Official CLI (`@longgilstudio/cli`)**: `npx @longgilstudio/cli info` | `npm install -g @longgilstudio/cli` | `pip install longgilstudio` | `brew install longgilstudio/tap/lgs`
 - **LLMs.txt**: [https://longgilstudio.com/llms.txt](https://longgilstudio.com/llms.txt)
 - **XML Sitemap**: [https://longgilstudio.com/sitemap.xml](https://longgilstudio.com/sitemap.xml)
 

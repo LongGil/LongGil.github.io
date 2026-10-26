@@ -2,12 +2,12 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Long Gil Studio REST API & Content Specification (v1)",
-    "summary": "Versioned REST API (/v1/) and machine-readable content endpoints for Long Gil Studio (longgilstudio.com).",
-    "description": "Long Gil Studio is an independent game development studio from Vietnam, pioneering the AAA Indie Game (Triple-I) movement.\n\n## API Versioning Policy\n- **URL Path Versioning**: All REST API endpoints are versioned using explicit URL path prefixes (`/v1/...` and `/api/v1/...`). Future breaking changes will be published under `/v2/` and `/api/v2/`.\n- **Header Versioning**: Clients and AI agents may also negotiate or pin schema versions via the `X-API-Version` request header (e.g., `X-API-Version: v1` or `X-API-Version: 2026-10-26`). Every response echoes `X-API-Version`.\n\n## Deprecation & Sunset Policy\n- **Deprecation Header (RFC 9745)**: When an endpoint or API version is scheduled for retirement, responses include the standard `Deprecation: @<unix-timestamp>` header.\n- **Sunset Header (RFC 8594)**: Deprecated endpoints include a `Sunset: <HTTP-date>` header and a `Link: <https://longgilstudio.com/openapi.json>; rel=\"sunset\"` header indicating the exact retirement date.\n- **Notice Timeline**: Deprecated versions remain operational for a minimum of **90 days** after deprecation notice before sunset.",
-    "version": "1.2.0",
+    "summary": "Versioned REST API (/v1/), Developer Portal (/developers), CLI (@longgilstudio/cli), and machine-readable content endpoints for Long Gil Studio (longgilstudio.com).",
+    "description": "Long Gil Studio is an independent game development studio from Vietnam, pioneering the AAA Indie Game (Triple-I) movement.\n\n## When to Use This API (Agent Guidance)\n- **Game & Application Catalog**: Query `/v1/projects.json` for canonical metadata and store links for **GilongWorld** (Steam PC), **Fruit Dodgeball**, **CTU - TKB - KHHT**, **Cute Hide: Query-chan**, and **Quiz 3000 English Words**.\n- **Studio & Founder Identity**: Query `/v1/studio.json` or `/llms.txt` for verified studio details and founder **Huynh Long Gil**.\n- **Sandbox Testing**: Query `/v1/sandbox.json` with `X-API-Key: lgs_sandbox_demo_key_v1`.\n\n## Official CLI Tool (`@longgilstudio/cli`)\n- **npm / npx**: `npx @longgilstudio/cli projects --format json` | `npm install -g @longgilstudio/cli`\n- **PyPI**: `pip install longgilstudio`\n- **Homebrew**: `brew install longgilstudio/tap/lgs`\n\n## Rate Limits & Self-Throttling\nAll endpoints emit standard IETF `RateLimit` headers (`RateLimit-Limit: 60`, `RateLimit-Remaining`, `RateLimit-Reset`, `RateLimit-Policy: 60;w=60`) and `X-RateLimit-*` headers. Exceeding 60 requests per 60-second window returns HTTP `429 Too Many Requests` with a `Retry-After: 60` header.\n\n## API Versioning & Deprecation Policy\n- **URL Path & Header Versioning**: Endpoints are versioned under `/v1/` and `/api/v1/` and accept the `X-API-Version` header (`v1` or `2026-10-26`).\n- **Deprecation & Sunset**: Deprecated endpoints emit `Deprecation` (RFC 9745) and `Sunset` (RFC 8594) headers at least **90 days** prior to removal.",
+    "version": "1.3.0",
     "contact": {
-      "name": "Long Gil Studio",
-      "url": "https://longgilstudio.com",
+      "name": "Long Gil Studio Developer Support",
+      "url": "https://longgilstudio.com/developers",
       "email": "info@longgilstudio.com"
     },
     "license": {
@@ -16,6 +16,38 @@
     },
     "x-logo": {
       "url": "https://longgilstudio.com/assets/img/nature/logo_GL_nb2.png"
+    },
+    "x-developer-portal": "https://longgilstudio.com/developers",
+    "x-documentation": "https://longgilstudio.com/docs",
+    "x-sandbox": {
+      "url": "https://longgilstudio.com/v1/sandbox.json",
+      "demo_api_key": "lgs_sandbox_demo_key_v1",
+      "header": "X-API-Key"
+    },
+    "x-cli": {
+      "name": "@longgilstudio/cli",
+      "binary": "lgs",
+      "npm": "npm install -g @longgilstudio/cli",
+      "npx": "npx @longgilstudio/cli",
+      "pypi": "pip install longgilstudio",
+      "homebrew": "brew install longgilstudio/tap/lgs",
+      "script_url": "https://longgilstudio.com/cli/lgs.mjs"
+    },
+    "x-rate-limit": {
+      "limit": 60,
+      "window_seconds": 60,
+      "policy": "60;w=60",
+      "headers": [
+        "RateLimit-Limit",
+        "RateLimit-Remaining",
+        "RateLimit-Reset",
+        "RateLimit-Policy",
+        "RateLimit",
+        "X-RateLimit-Limit",
+        "X-RateLimit-Remaining",
+        "X-RateLimit-Reset",
+        "Retry-After"
+      ]
     },
     "x-api-versioning": {
       "strategy": ["url-path", "header"],
@@ -27,7 +59,7 @@
     "x-deprecation-policy": {
       "minimum_notice_days": 90,
       "headers": ["Deprecation", "Sunset", "Link"],
-      "policy_url": "https://longgilstudio.com/openapi.json"
+      "policy_url": "https://longgilstudio.com/developers"
     }
   },
   "servers": [
@@ -41,7 +73,7 @@
     },
     {
       "url": "https://longgilstudio.com/api/v1",
-      "description": "Production REST API v1 (Alias)"
+      "description": "Sandbox & REST API v1 Alias"
     }
   ],
   "paths": {
@@ -59,7 +91,11 @@
             "headers": {
               "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
               "Deprecation": { "$ref": "#/components/headers/Deprecation" },
-              "Sunset": { "$ref": "#/components/headers/Sunset" }
+              "Sunset": { "$ref": "#/components/headers/Sunset" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" },
+              "RateLimit-Policy": { "$ref": "#/components/headers/RateLimitPolicy" }
             },
             "content": {
               "application/json": {
@@ -69,6 +105,7 @@
           },
           "400": { "$ref": "#/components/responses/BadRequestError" },
           "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "500": { "$ref": "#/components/responses/InternalServerError" },
           "default": { "$ref": "#/components/responses/DefaultError" }
         }
@@ -88,7 +125,11 @@
             "headers": {
               "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
               "Deprecation": { "$ref": "#/components/headers/Deprecation" },
-              "Sunset": { "$ref": "#/components/headers/Sunset" }
+              "Sunset": { "$ref": "#/components/headers/Sunset" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" },
+              "RateLimit-Policy": { "$ref": "#/components/headers/RateLimitPolicy" }
             },
             "content": {
               "application/json": {
@@ -98,7 +139,40 @@
           },
           "400": { "$ref": "#/components/responses/BadRequestError" },
           "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "500": { "$ref": "#/components/responses/InternalServerError" },
+          "default": { "$ref": "#/components/responses/DefaultError" }
+        }
+      }
+    },
+    "/v1/sandbox.json": {
+      "get": {
+        "operationId": "getSandboxV1",
+        "summary": "Sandbox Environment & Rate Limit Status (v1)",
+        "description": "Returns sandbox environment health, test API key verification (lgs_sandbox_demo_key_v1), rate-limit configuration, and CLI metadata.",
+        "parameters": [
+          { "$ref": "#/components/parameters/ApiVersionHeader" },
+          { "$ref": "#/components/parameters/SandboxApiKeyHeader" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sandbox status JSON (v1)",
+            "headers": {
+              "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" },
+              "RateLimit-Policy": { "$ref": "#/components/headers/RateLimitPolicy" }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "type": "object" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequestError" },
+          "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "default": { "$ref": "#/components/responses/DefaultError" }
         }
       }
@@ -117,7 +191,10 @@
             "headers": {
               "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
               "Deprecation": { "$ref": "#/components/headers/Deprecation" },
-              "Sunset": { "$ref": "#/components/headers/Sunset" }
+              "Sunset": { "$ref": "#/components/headers/Sunset" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" }
             },
             "content": {
               "application/json": {
@@ -127,6 +204,7 @@
           },
           "400": { "$ref": "#/components/responses/BadRequestError" },
           "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "500": { "$ref": "#/components/responses/InternalServerError" },
           "default": { "$ref": "#/components/responses/DefaultError" }
         }
@@ -146,7 +224,10 @@
             "headers": {
               "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
               "Deprecation": { "$ref": "#/components/headers/Deprecation" },
-              "Sunset": { "$ref": "#/components/headers/Sunset" }
+              "Sunset": { "$ref": "#/components/headers/Sunset" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" }
             },
             "content": {
               "application/json": {
@@ -156,6 +237,7 @@
           },
           "400": { "$ref": "#/components/responses/BadRequestError" },
           "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "500": { "$ref": "#/components/responses/InternalServerError" },
           "default": { "$ref": "#/components/responses/DefaultError" }
         }
@@ -191,7 +273,10 @@
                   "example": "Accept"
                 }
               },
-              "X-API-Version": { "$ref": "#/components/headers/XApiVersion" }
+              "X-API-Version": { "$ref": "#/components/headers/XApiVersion" },
+              "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+              "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+              "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" }
             },
             "content": {
               "text/html": {
@@ -204,8 +289,59 @@
           },
           "400": { "$ref": "#/components/responses/BadRequestError" },
           "404": { "$ref": "#/components/responses/NotFoundError" },
+          "429": { "$ref": "#/components/responses/TooManyRequestsError" },
           "500": { "$ref": "#/components/responses/InternalServerError" },
           "default": { "$ref": "#/components/responses/DefaultError" }
+        }
+      }
+    },
+    "/developers": {
+      "get": {
+        "operationId": "getDeveloperPortal",
+        "summary": "Developer Portal, API Keys, Quickstart & Sandbox",
+        "description": "Interactive Developer Portal with API keys, quickstart examples, live sandbox environment, and CLI documentation.",
+        "responses": {
+          "200": {
+            "description": "Developer Portal (HTML or Markdown)",
+            "content": {
+              "text/html": { "schema": { "type": "string" } },
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFoundError" }
+        }
+      }
+    },
+    "/docs": {
+      "get": {
+        "operationId": "getApiDocs",
+        "summary": "Public API Documentation",
+        "description": "Public REST API v1 documentation covering authentication, endpoints, rate limits, and example requests.",
+        "responses": {
+          "200": {
+            "description": "API Documentation (HTML or Markdown)",
+            "content": {
+              "text/html": { "schema": { "type": "string" } },
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFoundError" }
+        }
+      }
+    },
+    "/AGENTS.md": {
+      "get": {
+        "operationId": "getAgentInstructions",
+        "summary": "Agent Instructions & When-to-Use Guidance",
+        "description": "Dedicated agent instructions detailing when to use Long Gil Studio, best-fit use cases, and how to call the REST API v1 or CLI.",
+        "responses": {
+          "200": {
+            "description": "Markdown agent instructions",
+            "content": {
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          },
+          "404": { "$ref": "#/components/responses/NotFoundError" }
         }
       }
     },
@@ -234,8 +370,8 @@
     "/llms.txt": {
       "get": {
         "operationId": "getLlmsTxt",
-        "summary": "LLMs.txt — Machine-readable studio overview",
-        "description": "Markdown-formatted overview of Long Gil Studio, its projects, founder, API endpoints, and contact information following the llms.txt standard.",
+        "summary": "LLMs.txt — Machine-readable studio overview & When-to-Use guide",
+        "description": "Markdown-formatted overview of Long Gil Studio, when-to-use agent guidance, projects, founder, API endpoints, and CLI instructions.",
         "parameters": [
           { "$ref": "#/components/parameters/ApiVersionHeader" }
         ],
@@ -391,7 +527,7 @@
       "get": {
         "operationId": "getOpenApiJson",
         "summary": "OpenAPI 3.1.0 specification (JSON)",
-        "description": "OpenAPI 3.1.0 specification in JSON format describing all public endpoints, versioning policy, and error schemas.",
+        "description": "OpenAPI 3.1.0 specification in JSON format describing all public endpoints, versioning policy, rate limits, and error schemas.",
         "responses": {
           "200": {
             "description": "OpenAPI JSON specification",
@@ -410,7 +546,7 @@
       "get": {
         "operationId": "getOpenApiYaml",
         "summary": "OpenAPI 3.1.0 specification (YAML)",
-        "description": "OpenAPI 3.1.0 specification in YAML format describing all public endpoints, versioning policy, and error schemas.",
+        "description": "OpenAPI 3.1.0 specification in YAML format describing all public endpoints, versioning policy, rate limits, and error schemas.",
         "responses": {
           "200": {
             "description": "OpenAPI YAML specification",
@@ -457,6 +593,16 @@
           "default": "v1",
           "enum": ["v1", "2026-10-26"]
         }
+      },
+      "SandboxApiKeyHeader": {
+        "name": "X-API-Key",
+        "in": "header",
+        "required": false,
+        "description": "Optional sandbox API key for testing authenticated agent workflows (demo key: 'lgs_sandbox_demo_key_v1').",
+        "schema": {
+          "type": "string",
+          "default": "lgs_sandbox_demo_key_v1"
+        }
       }
     },
     "headers": {
@@ -480,6 +626,41 @@
           "type": "string",
           "format": "date-time",
           "example": "Wed, 01 Jan 2031 00:00:00 GMT"
+        }
+      },
+      "RateLimitLimit": {
+        "description": "Maximum number of requests permitted in the current 60-second window (RFC RateLimit)",
+        "schema": {
+          "type": "integer",
+          "example": 60
+        }
+      },
+      "RateLimitRemaining": {
+        "description": "Remaining number of requests permitted in the current window (RFC RateLimit)",
+        "schema": {
+          "type": "integer",
+          "example": 59
+        }
+      },
+      "RateLimitReset": {
+        "description": "Seconds remaining until the current rate-limit window resets (RFC RateLimit)",
+        "schema": {
+          "type": "integer",
+          "example": 60
+        }
+      },
+      "RateLimitPolicy": {
+        "description": "Rate limit quota policy (60 requests per 60 seconds)",
+        "schema": {
+          "type": "string",
+          "example": "60;w=60"
+        }
+      },
+      "RetryAfter": {
+        "description": "Seconds to wait before retrying after a 429 Too Many Requests response (RFC 9110)",
+        "schema": {
+          "type": "integer",
+          "example": 60
         }
       }
     },
@@ -592,7 +773,10 @@
           "Vary": {
             "description": "Indicates error format varies by Accept header (application/json, text/markdown, text/html)",
             "schema": { "type": "string", "example": "Accept" }
-          }
+          },
+          "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+          "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+          "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" }
         },
         "content": {
           "application/json": {
@@ -623,6 +807,24 @@
           }
         }
       },
+      "TooManyRequestsError": {
+        "description": "Rate limit exceeded (60 requests per 60-second window). Self-throttle according to Retry-After.",
+        "headers": {
+          "Retry-After": { "$ref": "#/components/headers/RetryAfter" },
+          "RateLimit-Limit": { "$ref": "#/components/headers/RateLimitLimit" },
+          "RateLimit-Remaining": { "$ref": "#/components/headers/RateLimitRemaining" },
+          "RateLimit-Reset": { "$ref": "#/components/headers/RateLimitReset" },
+          "RateLimit-Policy": { "$ref": "#/components/headers/RateLimitPolicy" }
+        },
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          },
+          "application/problem+json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
       "InternalServerError": {
         "description": "Unexpected server error (structured JSON error response).",
         "content": {
@@ -648,7 +850,7 @@
     }
   },
   "externalDocs": {
-    "description": "LLMs.txt — Machine-readable studio overview for AI agents",
-    "url": "https://longgilstudio.com/llms.txt"
+    "description": "Long Gil Studio Developer Portal & Agent Instructions",
+    "url": "https://longgilstudio.com/developers"
   }
 }

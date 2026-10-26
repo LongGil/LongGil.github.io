@@ -1,40 +1,43 @@
+/*
+  X-API-Version: v1
+  Deprecation: false
+  RateLimit-Limit: 60
+  RateLimit-Remaining: 59
+  RateLimit-Reset: 60
+  RateLimit-Policy: 60;w=60
+  RateLimit: limit=60, remaining=59, reset=60
+  X-RateLimit-Limit: 60
+  X-RateLimit-Remaining: 59
+  X-RateLimit-Reset: 60
+
 /
   Vary: Accept
-  X-API-Version: v1
-  Link: <https://longgilstudio.com/index.md>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/llms.txt>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/openapi.json>; rel="service-desc"; type="application/openapi+json"
+  Link: <https://longgilstudio.com/index.md>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/llms.txt>; rel="alternate"; type="text/markdown", <https://longgilstudio.com/openapi.json>; rel="service-desc"; type="application/openapi+json", <https://longgilstudio.com/developers>; rel="documentation"
 
 /index.md
   Content-Type: text/markdown; charset=utf-8
   Vary: Accept
-  X-API-Version: v1
 
 /404.md
   Content-Type: text/markdown; charset=utf-8
   Vary: Accept
-  X-API-Version: v1
+
+/AGENTS.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
 
 /llms.txt
   Content-Type: text/markdown; charset=utf-8
   Vary: Accept
-  X-API-Version: v1
 
 /openapi.json
   Content-Type: application/json; charset=utf-8
-  X-API-Version: v1
-  Deprecation: false
 
 /api/openapi.yaml
   Content-Type: application/yaml; charset=utf-8
-  X-API-Version: v1
-  Deprecation: false
 
 /v1/*
   Content-Type: application/json; charset=utf-8
-  X-API-Version: v1
-  Deprecation: false
 
 /api/v1/*
   Content-Type: application/json; charset=utf-8
-  X-API-Version: v1
-  Deprecation: false
-

@@ -87,6 +87,9 @@ User-agent: PetalBot
 Disallow: /
 
 # Machine-readable content for AI agents
+# Developer Portal: https://longgilstudio.com/developers
+# API Documentation: https://longgilstudio.com/docs
+# Agent Instructions: https://longgilstudio.com/AGENTS.md
 # LLMs.txt: https://longgilstudio.com/llms.txt
 # Markdown Homepage: https://longgilstudio.com/index.md
 # OpenAPI (JSON): https://longgilstudio.com/openapi.json

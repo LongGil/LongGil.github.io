@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>API Documentation &amp; Agent Reference | Long Gil Studio</title>
+    <meta name="description"
+        content="Official REST API v1 Documentation for Long Gil Studio. Explore endpoints, authentication, rate limits, CLI usage, and example requests.">
+    <meta name="author" content="Huynh Long Gil">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://longgilstudio.com/docs">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/docs/index.md" title="API Documentation Markdown">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/llms.txt" title="LLMs.txt">
+    <link rel="service-desc" type="application/openapi+json" href="https://longgilstudio.com/openapi.json">
+    <link rel="icon" type="image/png" href="/assets/img/nature/favicon_50x50-removebg-preview.png">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.purged.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi&amp;display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/index-styles.css">
+    <link rel="stylesheet" href="/assets/css/index-custom.css">
+</head>
+
+<body style="background: #050a30; color: #f8f9fa; font-family: 'Exo 2', sans-serif;">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient"
+        style="background: url(&quot;/assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30;">
+        <div class="container">
+            <a class="navbar-brand logo" href="/index.html">
+                <img src="/assets/img/nature/LGSTUDIO2_sim_870x100.png" alt="Long Gil Studio" class="brand-logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/developers" style="font-weight: bold;font-family: Alatsi, sans-serif;">Developers</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/docs" style="font-weight: bold;font-family: Alatsi, sans-serif;">API Docs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/openapi.json" style="font-weight: bold;font-family: Alatsi, sans-serif;">OpenAPI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/llms.txt" style="font-weight: bold;font-family: Alatsi, sans-serif;">llms.txt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 100px; padding-bottom: 60px; max-width: 980px;">
+        <header class="mb-5">
+            <h1 style="font-family: Alatsi, sans-serif; color: var(--bs-cyan);">Long Gil Studio REST API v1 Documentation</h1>
+            <p style="font-size: 1.15rem; color: var(--bs-gray-300);">
+                Complete reference for the Long Gil Studio REST API v1 (<code>https://longgilstudio.com/v1</code>), OpenAPI 3.1 schema, authentication, rate-limit headers, and CLI tool. Visit the <a href="/developers" style="color: var(--bs-cyan);">Developer Portal (/developers)</a> for the interactive sandbox explorer.
+            </p>
+        </header>
+
+        <section class="mb-4 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">Authentication</h2>
+            <p>Public read-only endpoints require no authentication (<code>auth: none</code>). For sandbox testing, pass <code>X-API-Key: lgs_sandbox_demo_key_v1</code> or <code>Authorization: Bearer lgs_sandbox_demo_key_v1</code>.</p>
+        </section>
+
+        <section class="mb-4 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">Endpoints &amp; Example Requests</h2>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">1. <code>GET /v1/studio.json</code> — Studio Metadata</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>curl -sS https://longgilstudio.com/v1/studio.json \
+  -H "Accept: application/json" \
+  -H "X-API-Version: v1"</code></pre>
+
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">2. <code>GET /v1/projects.json</code> — Games &amp; Applications Catalog</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>curl -sS https://longgilstudio.com/v1/projects.json \
+  -H "Accept: application/json" \
+  -H "X-API-Version: v1"</code></pre>
+
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">3. <code>GET /v1/sandbox.json</code> — Sandbox Health &amp; Echo</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>curl -sS https://longgilstudio.com/v1/sandbox.json \
+  -H "X-API-Key: lgs_sandbox_demo_key_v1" \
+  -H "X-Sandbox-Mode: true"</code></pre>
+
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">4. Official CLI Tool (<code>@longgilstudio/cli</code>)</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>npx @longgilstudio/cli info
+npx @longgilstudio/cli projects --format json
+npm install -g @longgilstudio/cli
+pip install longgilstudio
+brew install longgilstudio/tap/lgs</code></pre>
+        </section>
+
+        <section class="mb-4 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">Rate Limit &amp; Versioning Headers</h2>
+            <p class="mb-0">
+                Responses include <code>RateLimit-Limit: 60</code>, <code>RateLimit-Remaining: 59</code>, <code>RateLimit-Reset: 60</code>, <code>RateLimit-Policy: 60;w=60</code>, <code>X-API-Version: v1</code>, and <code>Deprecation: false</code> (plus <code>Retry-After: 60</code> on HTTP <code>429</code>).
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
+

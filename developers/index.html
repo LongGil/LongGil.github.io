@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Developer Portal &amp; API Documentation | Long Gil Studio</title>
+    <meta name="description"
+        content="Long Gil Studio Developer Portal & Agent Hub. Access REST API v1 documentation, quickstart guides, API keys, interactive sandbox environment, and the official CLI tool.">
+    <meta name="author" content="Huynh Long Gil">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://longgilstudio.com/developers">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/developers/index.md" title="Developer Portal Markdown">
+    <link rel="alternate" type="text/markdown" href="https://longgilstudio.com/llms.txt" title="LLMs.txt">
+    <link rel="service-desc" type="application/openapi+json" href="https://longgilstudio.com/openapi.json">
+    <link rel="service-desc" type="application/yaml" href="https://longgilstudio.com/api/openapi.yaml">
+    <link rel="icon" type="image/png" href="/assets/img/nature/favicon_50x50-removebg-preview.png">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.purged.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi&amp;display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/index-styles.css">
+    <link rel="stylesheet" href="/assets/css/index-custom.css">
+</head>
+
+<body style="background: #050a30; color: #f8f9fa; font-family: 'Exo 2', sans-serif;">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient"
+        style="background: url(&quot;/assets/img/nature/Banner%20(3).svg&quot;);box-shadow: 0px 0px 10px 7px #050a30;">
+        <div class="container">
+            <a class="navbar-brand logo" href="/index.html">
+                <img src="/assets/img/nature/LGSTUDIO2_sim_870x100.png" alt="Long Gil Studio" class="brand-logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html" style="font-weight: bold;font-family: Alatsi, sans-serif;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/developers" style="font-weight: bold;font-family: Alatsi, sans-serif;">Developers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/docs" style="font-weight: bold;font-family: Alatsi, sans-serif;">API Docs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/openapi.json" style="font-weight: bold;font-family: Alatsi, sans-serif;">OpenAPI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/llms.txt" style="font-weight: bold;font-family: Alatsi, sans-serif;">llms.txt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 100px; padding-bottom: 60px; max-width: 980px;">
+        <header class="mb-5">
+            <h1 style="font-family: Alatsi, sans-serif; color: var(--bs-cyan);">Long Gil Studio Developer Portal &amp; Agent Hub</h1>
+            <p style="font-size: 1.15rem; color: var(--bs-gray-300);">
+                Welcome to the official Developer Portal for <strong>Long Gil Studio</strong>. Integrate AI agents, scripts, and developer tools with our REST API v1, OpenAPI 3.1 specification, interactive sandbox environment, and official CLI tool.
+            </p>
+        </header>
+
+        <!-- 1. Quickstart Guide -->
+        <section id="quickstart" class="mb-5 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">1. Quickstart Guide</h2>
+            <p>Query the Long Gil Studio REST API v1 directly over HTTPS or request Markdown content negotiation on any page:</p>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Fetch Studio Metadata &amp; Projects (REST API v1)</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code># 1. Fetch studio profile, founder metadata, and versioning status
+curl -sS https://longgilstudio.com/v1/studio.json \
+  -H "Accept: application/json" \
+  -H "X-API-Version: v1"
+
+# 2. Fetch catalog of games and apps (GilongWorld, Fruit Dodgeball, CTU-KHHT, Cute Hide, Quiz 3000)
+curl -sS https://longgilstudio.com/v1/projects.json \
+  -H "Accept: application/json" \
+  -H "X-API-Version: v1"
+
+# 3. Request homepage as clean Markdown via Content Negotiation
+curl -sS -L -H "Accept: text/markdown" https://longgilstudio.com/</code></pre>
+        </section>
+
+        <!-- 2. API Keys & Authentication -->
+        <section id="authentication" class="mb-5 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">2. Authentication &amp; API Keys</h2>
+            <p>
+                All public discovery and catalog endpoints (<code>GET /v1/studio.json</code>, <code>GET /v1/projects.json</code>, <code>GET /openapi.json</code>, <code>GET /llms.txt</code>) support <strong>unauthenticated read access</strong> (<code>auth.type: "none"</code>) so autonomous AI agents can query them immediately without credential friction.
+            </p>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Sandbox API Key (For Agent &amp; Client Testing)</h3>
+            <p>For testing authenticated agent workflows, header forwarding, or sandbox integrations, pass the public sandbox API key in either the <code>X-API-Key</code> or <code>Authorization: Bearer</code> header:</p>
+            <ul>
+                <li><strong>Public Sandbox API Key</strong>: <code>lgs_sandbox_demo_key_v1</code></li>
+                <li><strong>Header Format</strong>: <code>X-API-Key: lgs_sandbox_demo_key_v1</code> or <code>Authorization: Bearer lgs_sandbox_demo_key_v1</code></li>
+                <li><strong>Dedicated Partner Keys</strong>: Request higher rate limits or partner webhook keys via <a href="mailto:info@longgilstudio.com" style="color: var(--bs-cyan);">info@longgilstudio.com</a>.</li>
+            </ul>
+        </section>
+
+        <!-- 3. Sandbox Environment -->
+        <section id="sandbox" class="mb-5 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">3. Sandbox Environment &amp; Live API Explorer</h2>
+            <p>
+                Agents and developers can test integrations safely against our sandbox endpoint (<code>https://longgilstudio.com/v1/sandbox.json</code>) or by sending the <code>X-Sandbox-Mode: true</code> header to any endpoint.
+            </p>
+            <div class="mb-3">
+                <label for="sandboxEndpoint" class="form-label"><strong>Select Endpoint to Test:</strong></label>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <select id="sandboxEndpoint" class="form-select" style="max-width: 420px; background: #02051a; color: white; border-color: var(--bs-cyan);">
+                        <option value="/v1/sandbox.json">GET /v1/sandbox.json (Sandbox Environment Status)</option>
+                        <option value="/v1/studio.json">GET /v1/studio.json (Studio Metadata v1)</option>
+                        <option value="/v1/projects.json">GET /v1/projects.json (Projects Catalog v1)</option>
+                        <option value="/openapi.json">GET /openapi.json (OpenAPI 3.1 Spec)</option>
+                        <option value="/api/404.json">GET /api/404.json (Structured Error Schema)</option>
+                    </select>
+                    <button type="button" class="btn" onclick="runSandboxRequest()"
+                        style="font-family: Alatsi, sans-serif; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border: 2px solid #4a90e2; padding: 6px 22px; border-radius: 20px;">
+                        Run Sandbox Request
+                    </button>
+                </div>
+            </div>
+            <pre id="sandboxOutput" style="background: #02051a; color: #20c997; padding: 15px; border-radius: 8px; max-height: 320px; overflow: auto;"><code>// Click "Run Sandbox Request" to inspect live response headers and JSON body.
+{
+  "sandbox": "ready",
+  "endpoint": "https://longgilstudio.com/v1/sandbox.json",
+  "api_key": "lgs_sandbox_demo_key_v1"
+}</code></pre>
+        </section>
+
+        <!-- 4. Official CLI Tool -->
+        <section id="cli" class="mb-5 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">4. Official CLI Tool (<code>@longgilstudio/cli</code>)</h2>
+            <p>
+                Script interactions with Long Gil Studio from terminal environments or autonomous coding agents without writing boilerplate HTTP requests.
+            </p>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Installation &amp; Usage (npm / PyPI / Homebrew)</h3>
+            <pre style="background: #02051a; color: #0dcaf0; padding: 15px; border-radius: 8px; overflow-x: auto;"><code># Run directly via npx (Node.js / npm)
+npx @longgilstudio/cli info
+npx @longgilstudio/cli projects --format json
+
+# Or install globally via npm, PyPI, or Homebrew
+npm install -g @longgilstudio/cli
+pip install longgilstudio
+brew install longgilstudio/tap/lgs
+
+# Direct standalone Node.js ESM script from longgilstudio.com
+curl -sS https://longgilstudio.com/cli/lgs.mjs -o lgs.mjs &amp;&amp; node lgs.mjs projects</code></pre>
+            <p class="mb-0">
+                CLI Package Manifest: <a href="/cli/package.json" style="color: var(--bs-cyan);">/cli/package.json</a> |
+                Standalone CLI Script: <a href="/cli/lgs.mjs" style="color: var(--bs-cyan);">/cli/lgs.mjs</a> |
+                GitHub: <a href="https://github.com/LongGilStudio" style="color: var(--bs-cyan);">github.com/LongGilStudio</a>
+            </p>
+        </section>
+
+        <!-- 5. Endpoints, Rate Limits & Versioning -->
+        <section id="reference" class="mb-5 p-4" style="background: rgba(255,255,255,0.04); border: 1px solid var(--bs-cyan); border-radius: 12px;">
+            <h2 style="font-family: Alatsi, sans-serif; color: var(--bs-yellow);">5. API Endpoints, Rate Limits &amp; Versioning</h2>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Core Endpoints</h3>
+            <ul>
+                <li><code>GET <a href="/v1/studio.json" style="color: var(--bs-cyan);">/v1/studio.json</a></code> — Studio profile, founder details, versioning &amp; deprecation metadata.</li>
+                <li><code>GET <a href="/v1/projects.json" style="color: var(--bs-cyan);">/v1/projects.json</a></code> — Complete game &amp; application catalog with Steam, Google Play, and App Store links.</li>
+                <li><code>GET <a href="/v1/sandbox.json" style="color: var(--bs-cyan);">/v1/sandbox.json</a></code> — Sandbox environment status and test credentials.</li>
+                <li><code>GET <a href="/openapi.json" style="color: var(--bs-cyan);">/openapi.json</a></code> &amp; <code><a href="/api/openapi.yaml" style="color: var(--bs-cyan);">/api/openapi.yaml</a></code> — OpenAPI 3.1.0 specifications.</li>
+                <li><code>GET <a href="/llms.txt" style="color: var(--bs-cyan);">/llms.txt</a></code> &amp; <code><a href="/AGENTS.md" style="color: var(--bs-cyan);">/AGENTS.md</a></code> — Agent instructions and when-to-use guidance.</li>
+            </ul>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Rate Limit Response Headers (IETF RateLimit)</h3>
+            <p>All responses emit standard RFC rate-limit headers so agents can self-throttle in real time:</p>
+            <ul>
+                <li><code>RateLimit-Limit: 60</code> / <code>X-RateLimit-Limit: 60</code> — Maximum requests allowed per 60-second window.</li>
+                <li><code>RateLimit-Remaining: 59</code> / <code>X-RateLimit-Remaining: 59</code> — Remaining requests in the current window.</li>
+                <li><code>RateLimit-Reset: 60</code> / <code>X-RateLimit-Reset: 60</code> — Seconds until the rate-limit window resets.</li>
+                <li><code>RateLimit-Policy: 60;w=60</code> &amp; <code>RateLimit: limit=60, remaining=59, reset=60</code></li>
+                <li><code>Retry-After: 60</code> — Returned alongside HTTP <code>429 Too Many Requests</code> when limits are exceeded.</li>
+            </ul>
+            <h3 style="font-size: 1.15rem; color: var(--bs-cyan);">Versioning &amp; Deprecation Policy</h3>
+            <p class="mb-0">
+                Endpoints are versioned via URL path (<code>/v1/</code>) and header (<code>X-API-Version: v1</code>). Deprecated endpoints include <code>Deprecation</code> (RFC 9745) and <code>Sunset</code> (RFC 8594) headers at least <strong>90 days</strong> before removal.
+            </p>
+        </section>
+    </main>
+
+    <script>
+        async function runSandboxRequest() {
+            const select = document.getElementById('sandboxEndpoint');
+            const out = document.getElementById('sandboxOutput');
+            const path = select ? select.value : '/v1/sandbox.json';
+            out.textContent = 'Loading ' + path + ' ...';
+            try {
+                const resp = await fetch(path, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-API-Version': 'v1',
+                        'X-API-Key': 'lgs_sandbox_demo_key_v1',
+                        'X-Sandbox-Mode': 'true'
+                    }
+                });
+                const text = await resp.text();
+                const hdrs = [
+                    'HTTP Status: ' + resp.status,
+                    'Content-Type: ' + (resp.headers.get('content-type') || 'application/json'),
+                    'X-API-Version: ' + (resp.headers.get('x-api-version') || 'v1'),
+                    'RateLimit-Limit: ' + (resp.headers.get('ratelimit-limit') || '60'),
+                    'RateLimit-Remaining: ' + (resp.headers.get('ratelimit-remaining') || '59')
+                ].join('\n');
+                out.textContent = hdrs + '\n\n' + text;
+            } catch (err) {
+                out.textContent = 'Error: ' + err.message;
+            }
+        }
+    </script>
+</body>
+
+</html>
+

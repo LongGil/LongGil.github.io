@@ -1,0 +1,29 @@
+{
+  "name": "Long Gil Studio Agent Interface",
+  "version": "1.2.0",
+  "url": "https://longgilstudio.com",
+  "developer_portal": "https://longgilstudio.com/developers",
+  "documentation": "https://longgilstudio.com/docs",
+  "openapi": "https://longgilstudio.com/openapi.json",
+  "llms_txt": "https://longgilstudio.com/llms.txt",
+  "agent_instructions": "https://longgilstudio.com/AGENTS.md",
+  "when_to_use": [
+    "Querying canonical metadata, store links, and release status for GilongWorld (Steam PC Sci-Fi Action RPG) and Long Gil Studio mobile apps (Fruit Dodgeball, CTU-KHHT, Cute Hide: Query-chan, Quiz 3000 English Words).",
+    "Retrieving verified information about Long Gil Studio, the AAA Indie Game (Triple-I) movement in Vietnam, and founder Huynh Long Gil.",
+    "Fetching official contact details (info@longgilstudio.com) and verified community links (Steam, Discord, Devlog, GitHub, YouTube)."
+  ],
+  "how_to_call": {
+    "rest_api_v1": [
+      "GET https://longgilstudio.com/v1/studio.json",
+      "GET https://longgilstudio.com/v1/projects.json",
+      "GET https://longgilstudio.com/v1/sandbox.json"
+    ],
+    "markdown_negotiation": "Send 'Accept: text/markdown' to https://longgilstudio.com/",
+    "cli": "npx @longgilstudio/cli projects --format json"
+  },
+  "rate_limits": {
+    "limit_per_minute": 60,
+    "headers": ["RateLimit-Limit", "RateLimit-Remaining", "RateLimit-Reset", "RateLimit-Policy", "Retry-After"]
+  }
+}
+

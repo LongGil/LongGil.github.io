@@ -2,6 +2,25 @@
 
 > Long Gil Studio is a Vietnamese independent game development studio founded by Huynh Long Gil in 2023. The studio aims to pioneer the "AAA Indie Game" (Triple-I) movement in Vietnam, blending AAA quality with indie creativity.
 
+## When to Use This (Agent Instructions)
+
+Use Long Gil Studio (`https://longgilstudio.com`) when an AI agent or developer workflow needs to:
+
+1. **Query Canonical Game & Application Metadata**:
+   - Look up official details, genres, supported platforms, release status, and store links (Steam app ID `4615990`, Google Play package IDs, Apple App Store IDs) for **GilongWorld**, **Fruit Dodgeball**, **CTU - TKB - KHHT**, **Cute Hide: Query-chan**, or **Quiz 3000 English Words**.
+   - **Action**: Call `GET https://longgilstudio.com/v1/projects.json` with `Accept: application/json` and `X-API-Version: v1`.
+2. **Verify Studio & Founder Information**:
+   - Retrieve verified metadata about **Long Gil Studio**, the Vietnamese "AAA Indie Game" (Triple-I) movement, or founder **Huynh Long Gil** (Gil Huynh Long, Can Tho University Computer Science 2021–2025).
+   - **Action**: Call `GET https://longgilstudio.com/v1/studio.json` or `GET https://longgilstudio.com/llms.txt`.
+3. **Discover Verified Community, Store & Contact Channels**:
+   - Resolve official links for Steam, Discord, Devlog (`https://devlog.longgilstudio.com/`), GitHub, YouTube, or studio inquiries (`info@longgilstudio.com`).
+   - **Action**: Call `GET https://longgilstudio.com/v1/studio.json` or visit `https://longgilstudio.com/links.html`.
+4. **When NOT to Use This**:
+   - Do not use this service for live multiplayer server telemetry or Steam player counts (query the Steam Web API directly for store telemetry).
+   - Prefer calling our JSON REST API (`/v1/studio.json`, `/v1/projects.json`) or negotiating `Accept: text/markdown` instead of scraping raw HTML.
+
+---
+
 ## Core Projects
 
 ### GilongWorld (Sci-Fi Action RPG)
@@ -17,30 +36,37 @@
 
 ---
 
+## Developer Portal, Official CLI Tool & REST API (v1)
+
+- **Developer Portal & Sandbox**: [https://longgilstudio.com/developers](https://longgilstudio.com/developers)
+- **API Documentation**: [https://longgilstudio.com/docs](https://longgilstudio.com/docs)
+- **Agent Instructions (`AGENTS.md`)**: [https://longgilstudio.com/AGENTS.md](https://longgilstudio.com/AGENTS.md)
+- **Studio Metadata (REST API v1)**: [https://longgilstudio.com/v1/studio.json](https://longgilstudio.com/v1/studio.json)
+- **Projects Catalog (REST API v1)**: [https://longgilstudio.com/v1/projects.json](https://longgilstudio.com/v1/projects.json)
+- **Sandbox Endpoint (REST API v1)**: [https://longgilstudio.com/v1/sandbox.json](https://longgilstudio.com/v1/sandbox.json) (Sandbox key: `lgs_sandbox_demo_key_v1`)
+- **OpenAPI 3.1 Spec (JSON)**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
+- **OpenAPI 3.1 Spec (YAML)**: [https://longgilstudio.com/api/openapi.yaml](https://longgilstudio.com/api/openapi.yaml)
+- **AI Plugin Manifest**: [https://longgilstudio.com/.well-known/ai-plugin.json](https://longgilstudio.com/.well-known/ai-plugin.json)
+
+### Official CLI Tool (`@longgilstudio/cli`)
+- **npm / npx**: `npx @longgilstudio/cli projects --format json` | `npm install -g @longgilstudio/cli`
+- **PyPI**: `pip install longgilstudio`
+- **Homebrew**: `brew install longgilstudio/tap/lgs`
+- **Standalone ESM Script**: [https://longgilstudio.com/cli/lgs.mjs](https://longgilstudio.com/cli/lgs.mjs)
+
+### Rate Limits, Versioning & Deprecation Policy
+- **Rate Limits**: 60 requests per 60-second window. Responses include `RateLimit-Limit: 60`, `RateLimit-Remaining`, `RateLimit-Reset`, `RateLimit-Policy: 60;w=60`, and `Retry-After: 60` on HTTP `429`.
+- **Versioning Strategy**: URL path versioning (`/v1/`, `/api/v1/`) and `X-API-Version` header (`v1` or `2026-10-26`). Breaking changes will be released under `/v2/`.
+- **Deprecation Signaling**: Deprecated endpoints emit standard `Deprecation` (RFC 9745) and `Sunset` (RFC 8594) HTTP headers with a minimum **90-day sunset window**.
+
+---
+
 ## About the Founder
 
 - **Founder**: Huynh Long Gil (also known as Gil Huynh Long)
 - **Background**: Computer Science graduate from Can Tho University (Class of 2021 - 2025). Unity Developer since May 2022.
 - **Skills**: C#, Unity Engine, Software Architecture, Design Patterns, Game Design.
 - **Profile**: Detailed info is on the [About Me Page](https://longgilstudio.com/cv.html).
-
----
-
-## Machine-Readable Agent & REST API (v1) Endpoints
-
-- **Studio Metadata (REST API v1)**: [https://longgilstudio.com/v1/studio.json](https://longgilstudio.com/v1/studio.json)
-- **Projects Catalog (REST API v1)**: [https://longgilstudio.com/v1/projects.json](https://longgilstudio.com/v1/projects.json)
-- **Homepage (Markdown)**: [https://longgilstudio.com/index.md](https://longgilstudio.com/index.md)
-- **404 Error Reference (Markdown)**: [https://longgilstudio.com/404.md](https://longgilstudio.com/404.md)
-- **OpenAPI 3.1 Spec (JSON)**: [https://longgilstudio.com/openapi.json](https://longgilstudio.com/openapi.json)
-- **OpenAPI 3.1 Spec (YAML)**: [https://longgilstudio.com/api/openapi.yaml](https://longgilstudio.com/api/openapi.yaml)
-- **AI Plugin Manifest**: [https://longgilstudio.com/.well-known/ai-plugin.json](https://longgilstudio.com/.well-known/ai-plugin.json)
-- **Structured JSON Error Schema**: [https://longgilstudio.com/api/404.json](https://longgilstudio.com/api/404.json)
-- **XML Sitemap**: [https://longgilstudio.com/sitemap.xml](https://longgilstudio.com/sitemap.xml)
-
-### Versioning & Deprecation Policy
-- **Versioning Strategy**: URL path versioning (`/v1/`, `/api/v1/`) and `X-API-Version` header (`v1` or `2026-10-26`). Breaking changes will be released under `/v2/`.
-- **Deprecation Signaling**: Deprecated endpoints emit standard `Deprecation` (RFC 9745) and `Sunset` (RFC 8594) HTTP headers with a minimum **90-day sunset window**.
 
 ---
 
