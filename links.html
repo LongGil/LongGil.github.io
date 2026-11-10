@@ -88,7 +88,7 @@
         <header class="links-profile">
             <a href="https://longgilstudio.com" title="Long Gil Studio">
                 <img class="links-avatar" src="assets/img/avatars/logo-LGS.png" alt="Long Gil Studio Logo"
-                    width="96" height="96">
+                    width="96" height="96" fetchpriority="high" decoding="async">
             </a>
             <h1 class="links-name">Long Gil Studio</h1>
             <p class="links-tagline" data-vi="AAA (Alone, A lot of bugs, All-in) Indie Game Developer 🇻🇳"
@@ -431,12 +431,12 @@
             localStorage.setItem('preferredLanguage', currentLanguage);
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
+        (function () {
             const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
             if (savedLanguage !== currentLanguage) {
                 toggleLanguage();
             }
-        });
+        })();
     </script>
 </body>
 

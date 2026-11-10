@@ -324,3 +324,123 @@
         line-height: 1.8 !important;
     }
 }
+
+
+/* Merged from Features-Image-images.css */
+.fit-cover {
+    object-fit: cover;
+}
+
+/* Merged from dh-card-image-left-dark.css */
+.photo-card {
+    background-color: #2d3638;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 700px) {
+    .photo-card {
+        flex-direction: row;
+    }
+}
+
+.photo-background {
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-height: 250px;
+}
+
+@media screen and (min-width: 700px) {
+    .photo-background {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        min-height: none;
+        width: 50%;
+    }
+}
+
+.photo-details {
+    padding: 2.1875em 5%;
+}
+
+@media screen and (min-width: 700px) {
+    .photo-details {
+        width: 50%;
+    }
+}
+
+.photo-details h1,
+.photo-details h2,
+.photo-details h4 {
+    color: #fff;
+    font-weight: 500;
+    margin: 0;
+}
+
+.photo-details h1,
+.photo-details h2 {
+    font-size: 125%;
+    line-height: 1;
+    margin-bottom: 0.35em;
+}
+
+.photo-details p {
+    color: white;
+}
+
+/* Merged from index-custom.css */
+.brand-logo {
+    height: 34px;
+    width: auto;
+    filter: drop-shadow(0 0 9px #1ca7ab) brightness(1.3);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 576px) {
+    .brand-logo {
+        height: 22px;
+    }
+}
+
+.app-store-btn {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0,150,255,0.5);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.app-store-btn:hover {
+    background: linear-gradient(135deg, rgba(42, 82, 152, 0.8), rgba(30, 60, 114, 0.8));
+    border-color: #5aa3f0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(74, 144, 226, 0.4);
+    text-decoration: none;
+}
+
+.app-store-btn:active {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 6px rgba(74, 144, 226, 0.3);
+}
+
+/* Below-the-fold rendering optimization */
+#faqAccordion {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 320px;
+}
